@@ -1,0 +1,416 @@
+// ==========================================
+// AIFREEKIT - 12 FREE AI TOOLS
+// 100% English Version
+// ==========================================
+
+var toolsGrid = document.getElementById('toolsGrid');
+var modal = document.getElementById('toolModal');
+var modalTitle = document.getElementById('modalTitle');
+var modalBody = document.getElementById('modalBody');
+var closeBtn = document.getElementById('closeBtn');
+
+var tools = [
+    { id: 'qr', icon: '📱', name: 'QR Code Generator' },
+    { id: 'image', icon: '🖼️', name: 'Image Compressor' },
+    { id: 'age', icon: '🎂', name: 'Age Calculator' },
+    { id: 'emi', icon: '🧮', name: 'EMI Calculator' },
+    { id: 'password', icon: '🔐', name: 'Password Generator' },
+    { id: 'word', icon: '✍️', name: 'Word Counter' },
+    { id: 'color', icon: '🎨', name: 'Color Picker' },
+    { id: 'unit', icon: '📏', name: 'Unit Converter' },
+    { id: 'text', icon: '🔤', name: 'Text Case Converter' },
+    { id: 'time', icon: '⏰', name: 'Time Zone' },
+    { id: 'emoji', icon: '😀', name: 'Emoji Copy' },
+    { id: 'pdf', icon: '📄', name: 'PDF Viewer' }
+];
+
+function renderTools(list) {
+    if (!list) list = tools;
+    var html = '';
+    for (var i = 0; i < list.length; i++) {
+        html += '<div class="tool-card" onclick="openTool(\'' + list[i].id + '\')">';
+        html += '<span class="tool-icon">' + list[i].icon + '</span>';
+        html += '<span class="tool-name">' + list[i].name + '</span>';
+        html += '</div>';
+    }
+    toolsGrid.innerHTML = html;
+}
+
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    var query = e.target.value.toLowerCase();
+    var filtered = [];
+    for (var i = 0; i < tools.length; i++) {
+        if (tools[i].name.toLowerCase().indexOf(query) !== -1) {
+            filtered.push(tools[i]);
+        }
+    }
+    renderTools(filtered);
+});
+
+function openTool(toolId) {
+    var tool = null;
+    for (var i = 0; i < tools.length; i++) {
+        if (tools[i].id === toolId) tool = tools[i];
+    }
+    if (!tool) return;
+    modalTitle.textContent = tool.icon + ' ' + tool.name;
+    modalBody.innerHTML = '';
+    modal.classList.add('active');
+    if (toolId === 'qr') loadQR();
+    else if (toolId === 'image') loadImage();
+    else if (toolId === 'age') loadAge();
+    else if (toolId === 'emi') loadEMI();
+    else if (toolId === 'password') loadPassword();
+    else if (toolId === 'word') loadWord();
+    else if (toolId === 'color') loadColor();
+    else if (toolId === 'unit') loadUnit();
+    else if (toolId === 'text') loadText();
+    else if (toolId === 'time') loadTime();
+    else if (toolId === 'emoji') loadEmoji();
+    else if (toolId === 'pdf') loadPDF();
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    modalBody.innerHTML = '';
+}
+
+closeBtn.onclick = closeModal;
+modal.onclick = function(e) {
+    if (e.target === modal) closeModal();
+};
+
+// ==========================================
+// TOOL 1: QR CODE GENERATOR
+// ==========================================
+function loadQR() {
+    modalBody.innerHTML = '<input type="text" id="qrInput" placeholder="Enter link or text...">' +
+        '<button onclick="generateQR()">Generate QR Code</button>' +
+        '<div id="qrResult" style="text-align:center;margin-top:15px;"></div>';
+}
+
+function generateQR() {
+    var text = document.getElementById('qrInput').value.trim();
+    var result = document.getElementById('qrResult');
+    if (!text) {
+        result.innerHTML = '<p style="color:#ff4757;">⚠️ Please enter something!</p>';
+        return;
+    }
+    var url = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(text);
+    result.innerHTML = '<img src="' + url + '" style="border-radius:10px;background:white;padding:10px;max-width:100%;"><p style="color:#00d4ff;margin-top:10px;font-size:0.85rem;">✅ Long press on image to download</p>';
+}
+
+// ==========================================
+// TOOL 2: IMAGE COMPRESSOR
+// ==========================================
+function loadImage() {
+    modalBody.innerHTML = '<input type="file" id="imgInput" accept="image/*">' +
+        '<label style="font-size:0.85rem;color:#aaa;display:block;margin-top:10px;">Quality: <span id="qv">70</span>%</label>' +
+        '<input type="range" id="qr2" min="10" max="100" value="70" oninput="document.getElementById(\'qv\').textContent=this.value">' +
+        '<button onclick="compressImage()">Compress Image</button>' +
+        '<div id="imgResult" style="text-align:center;margin-top:15px;"></div>';
+}
+
+function compressImage() {
+    var fileInput = document.getElementById('imgInput');
+    var quality = document.getElementById('qr2').value / 100;
+    var result = document.getElementById('imgResult');
+    if (!fileInput.files[0]) {
+        result.innerHTML = '<p style="color:#ff4757;">⚠️ Please select an image!</p>';
+        return;
+    }
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            canvas.toBlob(function(blob) {
+                var url = URL.createObjectURL(blob);
+                var oldKb = (file.size / 1024).toFixed(1);
+                var newKb = (blob.size / 1024).toFixed(1);
+                result.innerHTML = '<p style="color:#00ff88;font-size:0.9rem;">✅ ' + oldKb + ' KB → ' + newKb + ' KB</p>' +
+                    '<a href="' + url + '" download="compressed.jpg" style="display:inline-block;margin-top:10px;padding:10px 20px;background:linear-gradient(135deg,#00d4ff,#a855f7);color:white;text-decoration:none;border-radius:10px;font-weight:600;">⬇️ Download</a>';
+            }, 'image/jpeg', quality);
+        };
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
+
+// ==========================================
+// TOOL 3: AGE CALCULATOR
+// ==========================================
+function loadAge() {
+    modalBody.innerHTML = '<label style="font-size:0.85rem;color:#aaa;">Date of Birth:</label>' +
+        '<input type="date" id="dobInput">' +
+        '<button onclick="calculateAge()">Calculate Age</button>' +
+        '<div id="ageResult" style="margin-top:15px;"></div>';
+}
+
+function calculateAge() {
+    var dob = document.getElementById('dobInput').value;
+    var result = document.getElementById('ageResult');
+    if (!dob) {
+        result.innerHTML = '<p style="color:#ff4757;">⚠️ Please select a date!</p>';
+        return;
+    }
+    var birth = new Date(dob);
+    var today = new Date();
+    var years = today.getFullYear() - birth.getFullYear();
+    var months = today.getMonth() - birth.getMonth();
+    var days = today.getDate() - birth.getDate();
+    if (days < 0) { months--; days += 30; }
+    if (months < 0) { years--; months += 12; }
+    var totalDays = Math.floor((today - birth) / 86400000);
+    result.innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;text-align:center;">' +
+        '<p style="font-size:1.5rem;color:#00d4ff;font-weight:bold;">' + years + ' years, ' + months + ' months, ' + days + ' days</p>' +
+        '<p style="color:#aaa;font-size:0.85rem;margin-top:10px;">Total Days: <b style="color:#fff;">' + totalDays.toLocaleString() + '</b></p>' +
+        '</div>';
+}
+
+// ==========================================
+// TOOL 4: EMI CALCULATOR
+// ==========================================
+function loadEMI() {
+    modalBody.innerHTML = '<input type="number" id="loanAmount" placeholder="Loan Amount">' +
+        '<input type="number" id="interestRate" placeholder="Interest Rate (% per year)">' +
+        '<input type="number" id="loanTenure" placeholder="Tenure (months)">' +
+        '<button onclick="calculateEMI()">Calculate EMI</button>' +
+        '<div id="emiResult" style="margin-top:15px;"></div>';
+}
+
+function calculateEMI() {
+    var P = parseFloat(document.getElementById('loanAmount').value);
+    var R = parseFloat(document.getElementById('interestRate').value) / 12 / 100;
+    var N = parseFloat(document.getElementById('loanTenure').value);
+    var result = document.getElementById('emiResult');
+    if (!P || !R || !N) {
+        result.innerHTML = '<p style="color:#ff4757;">⚠️ Please fill all fields!</p>';
+        return;
+    }
+    var emi = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+    var total = emi * N;
+    var interest = total - P;
+    result.innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;text-align:center;">' +
+        '<p style="color:#aaa;font-size:0.85rem;">Monthly EMI</p>' +
+        '<p style="font-size:1.8rem;color:#00ff88;font-weight:bold;">$' + emi.toFixed(0) + '</p>' +
+        '<p style="color:#aaa;font-size:0.85rem;margin-top:10px;">Interest: <b style="color:#ff6b9d;">$' + interest.toFixed(0) + '</b></p>' +
+        '<p style="color:#aaa;font-size:0.85rem;">Total: <b style="color:#fff;">$' + total.toFixed(0) + '</b></p>' +
+        '</div>';
+}
+
+// ==========================================
+// TOOL 5: PASSWORD GENERATOR
+// ==========================================
+function loadPassword() {
+    modalBody.innerHTML = '<label style="font-size:0.85rem;color:#aaa;">Length: <span id="lv">16</span></label>' +
+        '<input type="range" id="passLen" min="4" max="50" value="16" oninput="document.getElementById(\'lv\').textContent=this.value">' +
+        '<button onclick="generatePassword()">Generate Password</button>' +
+        '<div id="passResult" style="margin-top:15px;"></div>';
+}
+
+function generatePassword() {
+    var len = document.getElementById('passLen').value;
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+    var pass = '';
+    for (var i = 0; i < len; i++) {
+        pass += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById('passResult').innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;text-align:center;word-break:break-all;">' +
+        '<p style="font-family:monospace;color:#00ff88;font-weight:bold;">' + pass + '</p></div>' +
+        '<button onclick="navigator.clipboard.writeText(\'' + pass + '\');this.textContent=\'✅ Copied!\'">📋 Copy</button>';
+}
+
+// ==========================================
+// TOOL 6: WORD COUNTER
+// ==========================================
+function loadWord() {
+    modalBody.innerHTML = '<textarea id="wordInput" rows="6" placeholder="Enter your text here..." oninput="countWords()" style="width:100%;padding:12px;border-radius:10px;border:2px solid #2a2a4a;background:#0f0f1a;color:#fff;"></textarea>' +
+        '<div style="background:#0f0f1a;padding:15px;border-radius:10px;margin-top:10px;">' +
+        '<p style="color:#aaa;font-size:0.85rem;">Words: <b style="color:#00d4ff;" id="wCount">0</b></p>' +
+        '<p style="color:#aaa;font-size:0.85rem;">Characters: <b style="color:#00d4ff;" id="cCount">0</b></p>' +
+        '</div>';
+}
+
+function countWords() {
+    var text = document.getElementById('wordInput').value;
+    var words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    document.getElementById('wCount').textContent = words;
+    document.getElementById('cCount').textContent = text.length;
+}
+
+// ==========================================
+// TOOL 7: COLOR PICKER
+// ==========================================
+function loadColor() {
+    modalBody.innerHTML = '<input type="color" id="colorInput" value="#00d4ff" style="height:60px;cursor:pointer;width:100%;" oninput="showColor()">' +
+        '<div id="colorResult" style="margin-top:15px;"></div>';
+    showColor();
+}
+
+function showColor() {
+    var color = document.getElementById('colorInput').value;
+    var r = parseInt(color.slice(1,3), 16);
+    var g = parseInt(color.slice(3,5), 16);
+    var b = parseInt(color.slice(5,7), 16);
+    document.getElementById('colorResult').innerHTML = '<div style="background:' + color + ';height:80px;border-radius:10px;"></div>' +
+        '<div style="background:#0f0f1a;padding:15px;border-radius:10px;margin-top:10px;text-align:center;">' +
+        '<p style="color:#00d4ff;font-weight:bold;">' + color.toUpperCase() + '</p>' +
+        '<p style="color:#aaa;font-size:0.85rem;">RGB: ' + r + ', ' + g + ', ' + b + '</p>' +
+        '<button onclick="navigator.clipboard.writeText(\'' + color + '\');this.textContent=\'✅ Copied!\'">📋 Copy</button></div>';
+}
+
+// ==========================================
+// TOOL 8: UNIT CONVERTER
+// ==========================================
+function loadUnit() {
+    modalBody.innerHTML = '<select id="unitType" onchange="updateUnits()" style="width:100%;padding:12px;border-radius:10px;border:2px solid #2a2a4a;background:#0f0f1a;color:#fff;">' +
+        '<option value="length">📏 Length</option>' +
+        '<option value="weight">⚖️ Weight</option>' +
+        '</select>' +
+        '<input type="number" id="unitValue" placeholder="Enter value..." oninput="convertUnit()">' +
+        '<div style="display:flex;gap:10px;margin-top:10px;">' +
+        '<select id="fromUnit" onchange="convertUnit()" style="flex:1;padding:10px;border-radius:10px;border:2px solid #2a2a4a;background:#0f0f1a;color:#fff;"></select>' +
+        '<select id="toUnit" onchange="convertUnit()" style="flex:1;padding:10px;border-radius:10px;border:2px solid #2a2a4a;background:#0f0f1a;color:#fff;"></select>' +
+        '</div>' +
+        '<div id="unitResult" style="margin-top:15px;"></div>';
+    updateUnits();
+}
+
+var unitData = {
+    length: { m: 1, km: 1000, cm: 0.01, mm: 0.001, mile: 1609.34, foot: 0.3048, inch: 0.0254 },
+    weight: { kg: 1, g: 0.001, mg: 0.000001, pound: 0.453592, ounce: 0.0283495 }
+};
+
+function updateUnits() {
+    var type = document.getElementById('unitType').value;
+    var units = Object.keys(unitData[type]);
+    var opts = '';
+    for (var i = 0; i < units.length; i++) {
+        opts += '<option value="' + units[i] + '">' + units[i].toUpperCase() + '</option>';
+    }
+    document.getElementById('fromUnit').innerHTML = opts;
+    document.getElementById('toUnit').innerHTML = opts;
+    document.getElementById('toUnit').selectedIndex = 1;
+}
+
+function convertUnit() {
+    var type = document.getElementById('unitType').value;
+    var val = parseFloat(document.getElementById('unitValue').value);
+    var from = document.getElementById('fromUnit').value;
+    var to = document.getElementById('toUnit').value;
+    var result = document.getElementById('unitResult');
+    if (isNaN(val)) { result.innerHTML = ''; return; }
+    var converted = val * unitData[type][from] / unitData[type][to];
+    result.innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;text-align:center;">' +
+        '<p style="color:#aaa;font-size:0.85rem;">' + val + ' ' + from.toUpperCase() + ' =</p>' +
+        '<p style="font-size:1.5rem;color:#00ff88;font-weight:bold;">' + converted.toFixed(4) + ' ' + to.toUpperCase() + '</p></div>';
+}
+
+// ==========================================
+// TOOL 9: TEXT CASE CONVERTER
+// ==========================================
+function loadText() {
+    modalBody.innerHTML = '<textarea id="caseInput" rows="4" placeholder="Enter your text here..." style="width:100%;padding:12px;border-radius:10px;border:2px solid #2a2a4a;background:#0f0f1a;color:#fff;"></textarea>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;">' +
+        '<button onclick="changeCase(\'upper\')">UPPERCASE</button>' +
+        '<button onclick="changeCase(\'lower\')">lowercase</button>' +
+        '<button onclick="changeCase(\'title\')">Title Case</button>' +
+        '<button onclick="changeCase(\'sentence\')">Sentence case</button></div>';
+}
+
+function changeCase(type) {
+    var input = document.getElementById('caseInput');
+    var text = input.value;
+    if (type === 'upper') {
+        text = text.toUpperCase();
+    } else if (type === 'lower') {
+        text = text.toLowerCase();
+    } else if (type === 'title') {
+        text = text.replace(/\w\S*/g, function(w) { return w.charAt(0).toUpperCase() + w.substr(1).toLowerCase(); });
+    } else if (type === 'sentence') {
+        text = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+    }
+    input.value = text;
+}
+
+// ==========================================
+// TOOL 10: TIME ZONE
+// ==========================================
+function loadTime() {
+    var zones = [
+        { n: '🇮🇳 India', tz: 'Asia/Kolkata' },
+        { n: '🇵🇰 Pakistan', tz: 'Asia/Karachi' },
+        { n: '🇺🇸 New York', tz: 'America/New_York' },
+        { n: '🇬🇧 London', tz: 'Europe/London' },
+        { n: '🇦🇪 Dubai', tz: 'Asia/Dubai' },
+        { n: '🇯🇵 Tokyo', tz: 'Asia/Tokyo' }
+    ];
+    var html = '';
+    for (var i = 0; i < zones.length; i++) {
+        html += '<div style="background:#0f0f1a;padding:10px 15px;border-radius:10px;margin:5px 0;display:flex;justify-content:space-between;">' +
+            '<span style="color:#aaa;">' + zones[i].n + '</span>' +
+            '<span style="color:#00d4ff;font-weight:bold;" id="tz' + i + '">--:--</span></div>';
+    }
+    modalBody.innerHTML = html;
+    updateTimes(zones);
+}
+
+function updateTimes(zones) {
+    for (var i = 0; i < zones.length; i++) {
+        var el = document.getElementById('tz' + i);
+        if (el) el.textContent = new Date().toLocaleTimeString('en-US', { timeZone: zones[i].tz, hour12: false });
+    }
+}
+
+// ==========================================
+// TOOL 11: EMOJI COPY
+// ==========================================
+function loadEmoji() {
+    var emojis = ['😀','😂','🥰','😎','🤔','😴','😭','😡','🥳','🤩','😇','🤗','😱','🤯','😈','👻','💀','🤖','❤️','💛','💚','💙','💜','🖤','👍','👎','👏','🙏','💪','✌️','🤝','👋','✨','🔥','⭐','💯','🎉','🎁','🏆','⚡','💎','🌟','🌈'];
+    var html = '<p style="color:#aaa;font-size:0.85rem;margin-bottom:10px;">Click on any emoji to copy it!</p>';
+    html += '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;">';
+    for (var i = 0; i < emojis.length; i++) {
+        html += '<span onclick="copyEmoji(\'' + emojis[i] + '\')" style="font-size:1.5rem;cursor:pointer;text-align:center;padding:5px;border-radius:8px;background:#0f0f1a;">' + emojis[i] + '</span>';
+    }
+    html += '</div><div id="emojiResult" style="text-align:center;margin-top:10px;color:#00ff88;min-height:20px;"></div>';
+    modalBody.innerHTML = html;
+}
+
+function copyEmoji(e) {
+    navigator.clipboard.writeText(e);
+    var r = document.getElementById('emojiResult');
+    r.textContent = '✅ ' + e + ' copied!';
+    setTimeout(function() { r.textContent = ''; }, 1500);
+}
+
+// ==========================================
+// TOOL 12: PDF VIEWER
+// ==========================================
+function loadPDF() {
+    modalBody.innerHTML = '<p style="color:#aaa;font-size:0.85rem;margin-bottom:10px;">Select a PDF file to view it</p>' +
+        '<input type="file" id="pdfInput" accept="application/pdf">' +
+        '<button onclick="handlePDF()">Open PDF</button>' +
+        '<div id="pdfResult" style="margin-top:15px;"></div>';
+}
+
+function handlePDF() {
+    var file = document.getElementById('pdfInput').files[0];
+    var result = document.getElementById('pdfResult');
+    if (!file) {
+        result.innerHTML = '<p style="color:#ff4757;">⚠️ Please select a PDF!</p>';
+        return;
+    }
+    var url = URL.createObjectURL(file);
+    result.innerHTML = '<embed src="' + url + '" type="application/pdf" width="100%" height="400px" style="border-radius:10px;">';
+}
+
+// ==========================================
+// START
+// ==========================================
+renderTools(tools);
+console.log('AIFreeKit ready!');
