@@ -417,4 +417,118 @@ function handlePDF() {
     result.innerHTML = '<embed src="' + url + '" type="application/pdf" width="100%" height="400px" style="border-radius:10px;">';
 }
 
-// ========
+// ==========================================
+// START
+// ==========================================
+renderTools(tools);
+// ==========================================
+// TOOL 13: CAPTION GENERATOR
+// ==========================================
+function loadCaption() {
+    modalBody.innerHTML = '<input type="text" id="capInput" placeholder="Enter topic (e.g., travel, food, love)">' +
+        '<button onclick="generateCaption()">Generate Caption</button>' +
+        '<div id="capResult" style="margin-top:15px;"></div>';
+}
+
+function generateCaption() {
+    var topic = document.getElementById('capInput').value.trim() || 'life';
+    var captions = [
+        "Living for the moments that take my breath away. ✨ #" + topic,
+        "Making memories I'll never forget. 💫 #" + topic,
+        "Good vibes only. ✌️ #" + topic,
+        "Chasing dreams and " + topic + ".",
+        "Just me and my thoughts. 🌙",
+        "Creating my own sunshine today. ☀️ #" + topic,
+        "This is what " + topic + " looks like for me.",
+        "Happiness is a choice. 😊",
+        "Life is better when you're laughing.",
+        "No caption needed, but here I am. 💁‍♂️"
+    ];
+    var randomCap = captions[Math.floor(Math.random() * captions.length)];
+    document.getElementById('capResult').innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;text-align:center;">' +
+        '<p style="color:#00ff88;font-size:1rem;">' + randomCap + '</p></div>' +
+        '<button onclick="navigator.clipboard.writeText(\'' + randomCap + '\');this.textContent=\'✅ Copied!\'">📋 Copy Caption</button>';
+}
+
+// ==========================================
+// TOOL 14: BIO GENERATOR
+// ==========================================
+function loadBio() {
+    modalBody.innerHTML = '<input type="text" id="bioName" placeholder="Your Name">' +
+        '<input type="text" id="bioJob" placeholder="Your Profession (e.g., Developer, Student)">' +
+        '<button onclick="generateBio()">Generate Bio</button>' +
+        '<div id="bioResult" style="margin-top:15px;"></div>';
+}
+
+function generateBio() {
+    var name = document.getElementById('bioName').value.trim() || '✨';
+    var job = document.getElementById('bioJob').value.trim() || 'Dreamer';
+    var bios = [
+        "✨ " + name + " | " + job + " 💻\n📍 India\n🔗 Link below",
+        "💫 " + job + " by day, dreamer by night.\n👤 " + name,
+        "🚀 " + name + "\nTurning ideas into reality.\n👇 DM for collab",
+        "✨ " + job + " | " + name + "\n💖 Positive vibes only",
+        "🎯 " + name + "\n" + job + " 📚\n💡 Keep learning",
+        "🌙 " + name + " \n" + job + "\n📩 DM for business"
+    ];
+    var randomBio = bios[Math.floor(Math.random() * bios.length)];
+    document.getElementById('bioResult').innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;white-space:pre-wrap;color:#00d4ff;">' + randomBio + '</div>' +
+        '<button onclick="navigator.clipboard.writeText(\'' + randomBio.replace(/\n/g, '\\n') + '\');this.textContent=\'✅ Copied!\'">📋 Copy Bio</button>';
+}
+// ==========================================
+// TOOL 15: HASHTAG GENERATOR
+// ==========================================
+function loadHashtag() {
+    modalBody.innerHTML = '<input type="text" id="hashInput" placeholder="Enter keyword (e.g., fashion, travel)">' +
+        '<button onclick="generateHashtag()">Generate Hashtags</button>' +
+        '<div id="hashResult" style="margin-top:15px;"></div>';
+}
+
+function generateHashtag() {
+    var keyword = document.getElementById('hashInput').value.trim().toLowerCase().replace(/\s+/g, '') || 'instagood';
+    var tags = [
+        "#" + keyword, "#" + keyword + "life", "#" + keyword + "lover", 
+        "#" + keyword + "daily", "#" + keyword + "gram", "#" + keyword + "vibes",
+        "#" + keyword + "photography", "#instagood", "#viral", "#trending",
+        "#explorepage", "#foryou", "#fyp", "#love", "#photooftheday"
+    ];
+    var hashText = tags.join(' ');
+    document.getElementById('hashResult').innerHTML = '<div style="background:#0f0f1a;padding:15px;border-radius:10px;line-height:1.6;color:#00d4ff;">' + hashText + '</div>' +
+        '<button onclick="navigator.clipboard.writeText(\'' + hashText + '\');this.textContent=\'✅ Copied!\'">📋 Copy Hashtags</button>';
+}
+
+// ==========================================
+// TOOL 16: STYLISH FONTS GENERATOR
+// ==========================================
+function loadFont() {
+    modalBody.innerHTML = '<input type="text" id="fontInput" placeholder="Enter text..." oninput="generateFonts()">' +
+        '<div id="fontResult" style="margin-top:15px;display:flex;flex-direction:column;gap:10px;"></div>';
+    generateFonts();
+}
+
+function generateFonts() {
+    var text = document.getElementById('fontInput').value || 'AIFreeKit';
+    var fonts = [
+        text.replace(/[a-zA-Z]/g, function(c) { return String.fromCharCode(c.charCodeAt(0) + (c >= 'a' && c <= 'z' ? 119737 : 119743)); }),
+        text.replace(/[a-zA-Z]/g, function(c) { return String.fromCharCode(c.charCodeAt(0) + (c >= 'a' && c <= 'z' ? 119951 : 119957)); }),
+        text.replace(/[a-zA-Z]/g, function(c) { return String.fromCharCode(c.charCodeAt(0) + (c >= 'a' && c <= 'z' ? 120017 : 120023)); }),
+        text.split('').join(' '),
+        text.toUpperCase() + ' ™',
+        '✨ ' + text + ' ✨',
+        '🔥 ' + text + ' 🔥'
+    ];
+    var html = '';
+    for (var i = 0; i < fonts.length; i++) {
+        html += '<div style="background:#0f0f1a;padding:10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;">' +
+            '<span style="color:#00d4ff;font-size:1.1rem;">' + fonts[i] + '</span>' +
+            '<button onclick="navigator.clipboard.writeText(\'' + fonts[i] + '\');this.textContent=\'✅\';setTimeout(()=>this.textContent=\'Copy\',1500)" style="width:auto;padding:5px 10px;font-size:0.8rem;margin:0;">Copy</button>' +
+            '</div>';
+    }
+    document.getElementById('fontResult').innerHTML = html;
+}
+
+// ==========================================
+// START
+// ==========================================
+
+console.log('AIFreeKit ready!');
