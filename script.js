@@ -21,7 +21,11 @@ var tools = [
     { id: 'text', icon: '🔤', name: 'Text Case Converter' },
     { id: 'time', icon: '⏰', name: 'Time Zone' },
     { id: 'emoji', icon: '😀', name: 'Emoji Copy' },
-    { id: 'pdf', icon: '📄', name: 'PDF Viewer' }
+    { id: 'pdf', icon: '📄', name: 'PDF Viewer' },
+    { id: 'caption', icon: '✍️', name: 'Caption Generator' },
+    { id: 'bio', icon: '📝', name: 'Bio Generator' },
+    { id: 'hashtag', icon: '#️⃣', name: 'Hashtag Generator' },
+    { id: 'font', icon: '🔤', name: 'Stylish Fonts' }
 ];
 
 function renderTools(list) {
@@ -68,7 +72,11 @@ function openTool(toolId) {
     else if (toolId === 'time') loadTime();
     else if (toolId === 'emoji') loadEmoji();
     else if (toolId === 'pdf') loadPDF();
-}
+    else if (toolId === 'caption') loadCaption();
+    else if (toolId === 'bio') loadBio();
+    else if (toolId === 'hashtag') loadHashtag();
+    else if (toolId === 'font') loadFont();
+  }
 
 function closeModal() {
     modal.classList.remove('active');
@@ -409,8 +417,4 @@ function handlePDF() {
     result.innerHTML = '<embed src="' + url + '" type="application/pdf" width="100%" height="400px" style="border-radius:10px;">';
 }
 
-// ==========================================
-// START
-// ==========================================
-renderTools(tools);
-console.log('AIFreeKit ready!');
+// ========
