@@ -438,3 +438,17 @@ body {
     padding-left: 30px !important;
     font-size: 0.9rem;
 }
+
+/* ===== MODAL CLOSE BUTTON FIX ===== */
+.modal-content {
+    position: relative !important;
+}
+
+#closeBtn {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    z-index: 99999 !important; /* Sabse upar dikhega aur click hoga */
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
