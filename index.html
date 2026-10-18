@@ -13,20 +13,41 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo">
-            <span class="logo-icon">⚡</span>
-            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
-        </div>
-         <div style="display:flex; gap:15px; align-items:center; flex-wrap:wrap;">
-    <div class="search-box" style="flex:1; min-width:150px;">
-        <input type="text" id="searchInput" placeholder="🔍 Search tools...">
+     <!-- HEADER WITH SIDEBAR MENU -->
+<header class="header">
+    <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
     </div>
-    <!-- Naya Menu Button -->
-    <a href="image-compressor.html" style="color: #00d4ff; text-decoration: none; font-weight: bold; background: #1a1a2e; padding: 10px 15px; border-radius: 20px; border: 1px solid #2a2a4a; font-size: 0.9rem;">🖼️ Image Tool</a>
-         </div>
-    </header>
+    
+    <!-- Menu Open Button (Three Lines) -->
+    <button onclick="toggleMenu()" style="background:transparent; border:none; color:#fff; font-size:1.8rem; cursor:pointer;">
+        ☰
+    </button>
+</header>
+
+<!-- SIDEBAR MENU -->
+<div id="sideMenu" class="side-menu">
+    <div class="menu-header">
+        <h2>Menu</h2>
+        <button onclick="toggleMenu()" class="close-menu-btn">✕</button>
+    </div>
+    
+    <div class="menu-search">
+        <input type="text" id="menuSearchInput" placeholder="🔍 Search tools..." oninput="searchMenuTools()">
+    </div>
+
+    <ul class="menu-list" id="menuList">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li class="menu-category">🛠️ All Tools</li>
+        <!-- Tools JS se add honge -->
+        <li class="menu-category">📄 Pages</li>
+        <li><a href="blog.html">📝 Blog</a></li>
+        <li><a href="faq.html">❓ FAQs</a></li>
+        <li><a href="contact.html">📞 Contact Us</a></li>
+        <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+    </ul>
+</div>
 
     <!-- HERO SECTION -->
     <section class="hero">
