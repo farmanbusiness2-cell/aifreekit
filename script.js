@@ -60,6 +60,7 @@ function openTool(toolId) {
     modalTitle.textContent = tool.icon + ' ' + tool.name;
     modalBody.innerHTML = '';
     modal.classList.add('active');
+    modal.style.display = 'flex';
     if (toolId === 'qr') loadQR();
     else if (toolId === 'image') loadImage();
     else if (toolId === 'age') loadAge();
