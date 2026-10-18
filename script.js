@@ -78,11 +78,16 @@ function openTool(toolId) {
     else if (toolId === 'font') loadFont();
   }
 
-function closeModal() {
-    modal.classList.remove('active');
-    modalBody.innerHTML = '';
-}
-
+ function closeModal() {
+    var modal = document.getElementById('toolModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+    var modalBody = document.getElementById('modalBody');
+    if (modalBody) {
+        modalBody.innerHTML = '';
+    }
+ }
 closeBtn.onclick = closeModal;
 modal.onclick = function(e) {
     if (e.target === modal) closeModal();
