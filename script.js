@@ -586,14 +586,14 @@ function searchMenuTools() {
     var input = document.getElementById('menuSearchInput').value.toLowerCase();
     var links = document.querySelectorAll('.menu-tool-link');
     
-    links.forEach(function(link) {
-        var text = link.textContent.toLowerCase();
-        if (text.includes(input)) {
-            link.style.display = 'block';
-        } else {
-            link.style.display = 'none';
-        }
-    });
+     for (var i = 0; i < links.length; i++) {
+    var text = links[i].textContent.toLowerCase();
+    if (text.indexOf(input) !== -1) {
+        links[i].style.display = 'block';
+    } else {
+        links[i].style.display = 'none';
+    }
+     }
 }
 
  function openToolFromMenu(toolId) {
