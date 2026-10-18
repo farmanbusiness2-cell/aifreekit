@@ -586,10 +586,14 @@ function searchMenuTools() {
     });
 }
 
-function openToolFromMenu(toolId) {
-    toggleMenu(); // Pehle menu band karo
-    setTimeout(function() {
-        openTool(toolId); // Phir tool ka popup kholo
-    }, 300); // 300ms ka delay taaki menu band hone ka animation dikhe
-}
+ function openToolFromMenu(toolId) {
+    // 1. Force close the menu properly
+    var menu = document.getElementById('sideMenu');
+    if (menu) {
+        menu.classList.remove('active');
+    }
+    
+    // 2. Open the tool instantly
+    openTool(toolId);
+ }
 console.log('AIFreeKit ready!');
