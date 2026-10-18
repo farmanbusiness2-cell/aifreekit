@@ -90,12 +90,19 @@ function openTool(toolId) {
         modalBody.innerHTML = '';
     }
   }
-if (closeBtn) {
-    closeBtn.addEventListener('click', function(e) {
-        e.preventDefault();
+ if (closeBtn) {
+    // Click event for computer
+    closeBtn.onclick = function(e) {
+        if(e) e.preventDefault();
         closeModal();
-    });
-}
+    };
+    
+    // Touch event for mobile phones
+    closeBtn.ontouchstart = function(e) {
+        if(e) e.preventDefault();
+        closeModal();
+    };
+ }
 modal.onclick = function(e) {
     if (e.target === modal) closeModal();
 };
