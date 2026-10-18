@@ -615,4 +615,16 @@ function searchMenuTools() {
     // 2. Open the tool instantly
     openTool(toolId);
  }
+// ===== FORCE CLOSE BUTTON (100% WORKING) =====
+function forceCloseModal() {
+    var modal = document.getElementById('toolModal');
+    if (modal) {
+        modal.style.display = 'none'; // Sabse powerful hide
+        modal.classList.remove('active');
+    }
+    var modalBody = document.getElementById('modalBody');
+    if (modalBody) {
+        modalBody.innerHTML = '';
+    }
+}
 console.log('AIFreeKit ready!');
