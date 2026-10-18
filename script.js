@@ -560,7 +560,7 @@ function loadMenuTools() {
     tools.forEach(function(tool) {
         var li = document.createElement('li');
         // Yahan hum link change karenge jab sabke pages ban jayenge
-        li.innerHTML = '<a href="index.html#' + tool.id + '" class="menu-tool-link" onclick="toggleMenu()">' + tool.icon + ' ' + tool.name + '</a>';
+        li.innerHTML = '<a href="javascript:void(0);" class="menu-tool-link" onclick="openToolFromMenu(\'' + tool.id + '\')">' + tool.icon + ' ' + tool.name + '</a>';
         group.appendChild(li);
     });
     
@@ -586,4 +586,10 @@ function searchMenuTools() {
     });
 }
 
+function openToolFromMenu(toolId) {
+    toggleMenu(); // Pehle menu band karo
+    setTimeout(function() {
+        openTool(toolId); // Phir tool ka popup kholo
+    }, 300); // 300ms ka delay taaki menu band hone ka animation dikhe
+}
 console.log('AIFreeKit ready!');
