@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - AIFreeKit</title>
+    <meta name="description" content="Frequently Asked Questions about AIFreeKit. Find answers about our free online tools, privacy, and usage.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        .page-container h1 { color: #00d4ff; margin-bottom: 30px; font-size: 2rem; text-align: center; }
+        
+        /* FAQ Accordion Style */
+        .faq-item { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
+        .faq-question { padding: 18px 20px; font-weight: bold; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+        .faq-question:hover { background: #16213e; }
+        .faq-question::after { content: '+'; font-size: 1.5rem; color: #00d4ff; }
+        .faq-question.active::after { content: '-'; }
+        
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #ccc; line-height: 1.6; }
+        .faq-answer.active { padding: 0 20px 20px 20px; max-height: 500px; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
+        </div>
+        <button onclick="window.location.href='index.html'" style="background:transparent; border:none; color:#00d4ff; font-weight:bold; cursor:pointer;">
+            ← Back to Home
+        </button>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="page-container">
+        <h1>Frequently Asked Questions (FAQs)</h1>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Are all the tools on AIFreeKit completely free?</div>
+            <div class="faq-answer">Yes, 100%! All the tools available on AIFreeKit are completely free to use. There are no hidden charges, no premium plans, and no credit card required.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Do I need to create an account or sign up?</div>
+            <div class="faq-answer">No, you do not need to create an account. We believe in keeping things simple. Just open the website, click on the tool you need, and start using it instantly.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Are my files and data safe?</div>
+            <div class="faq-answer">Absolutely. Most of our tools (like the Image Compressor and QR Code Generator) work directly in your browser. Your files are processed on your device and are never uploaded to our servers.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Can I use these tools on my mobile phone?</div>
+            <div class="faq-answer">Yes! AIFreeKit is fully responsive and optimized for all devices. You can use our tools seamlessly on your smartphone, tablet, or computer.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Will you add more tools in the future?</div>
+            <div class="faq-answer">Yes, we are constantly working on adding new and useful tools to make your daily tasks easier. Keep visiting us for updates!</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">How can I contact you?</div>
+            <div class="faq-answer">If you have any questions, suggestions, or business inquiries, you can reach out to us through our Contact Us page or email us at support@aifreekit.com.</div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Made with ❤️ | © 2026 AIFreeKit</p>
+    </footer>
+
+    <!-- FAQ Script -->
+    <script>
+        function toggleFaq(element) {
+            // Sabhi open FAQs ko band karo (optional)
+            var allQuestions = document.querySelectorAll('.faq-question');
+            var allAnswers = document.querySelectorAll('.faq-answer');
+            
+            // Agar tum chahte ho ki ek time pe sirf ek FAQ khule toh ye use karo:
+            /*
+            allQuestions.forEach(q => q.classList.remove('active'));
+            allAnswers.forEach(a => a.classList.remove('active'));
+            */
+
+            // Current FAQ ko toggle karo
+            element.classList.toggle('active');
+            var answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
