@@ -531,4 +531,59 @@ function generateFonts() {
 // START
 // ==========================================
 
+// ==========================================
+// SIDEBAR MENU FUNCTIONALITY
+// ==========================================
+
+function toggleMenu() {
+    var menu = document.getElementById('sideMenu');
+    if (menu) {
+        menu.classList.toggle('active');
+        if (menu.classList.contains('active')) {
+            loadMenuTools(); // Menu khulte hi tools load karo
+        }
+    }
+}
+
+// Menu mein tools add karne ka function
+function loadMenuTools() {
+    var menuList = document.getElementById('menuList');
+    if (!menuList) return;
+    
+    // Agar pehle se tools add hain (duplicate na ho)
+    if (document.getElementById('menuToolsGroup')) return;
+
+    var group = document.createElement('div');
+    group.id = 'menuToolsGroup';
+    
+    // Har tool ke liye link banao (Abhi ke liye home page pe #hash use kar rahe hain)
+    tools.forEach(function(tool) {
+        var li = document.createElement('li');
+        // Yahan hum link change karenge jab sabke pages ban jayenge
+        li.innerHTML = '<a href="index.html#' + tool.id + '" class="menu-tool-link" onclick="toggleMenu()">' + tool.icon + ' ' + tool.name + '</a>';
+        group.appendChild(li);
+    });
+    
+    // "All Tools" category ke theek baad group ko add karo
+    var categories = document.querySelectorAll('.menu-category');
+    if (categories.length > 0) {
+        categories[0].insertAdjacentElement('afterend', group);
+    }
+}
+
+// Menu ke andar search karne ka function
+function searchMenuTools() {
+    var input = document.getElementById('menuSearchInput').value.toLowerCase();
+    var links = document.querySelectorAll('.menu-tool-link');
+    
+    links.forEach(function(link) {
+        var text = link.textContent.toLowerCase();
+        if (text.includes(input)) {
+            link.style.display = 'block';
+        } else {
+            link.style.display = 'none';
+        }
+    });
+}
+
 console.log('AIFreeKit ready!');
