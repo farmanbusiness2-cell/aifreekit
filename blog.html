@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - AIFreeKit</title>
+    <meta name="description" content="Read helpful articles and guides about image compression, SEO, and using our free online tools.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        .page-container h1 { color: #00d4ff; margin-bottom: 20px; font-size: 2rem; text-align: center; }
+        
+        /* Blog Card Style */
+        .blog-card { background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 15px; padding: 25px; margin-bottom: 20px; text-decoration: none; display: block; transition: transform 0.3s, box-shadow 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.1); border-color: #00d4ff; }
+        .blog-card h2 { color: #fff; margin-bottom: 10px; font-size: 1.4rem; }
+        .blog-card p { color: #aaa; font-size: 0.95rem; margin-bottom: 15px; }
+        .read-more { color: #00d4ff; font-weight: bold; font-size: 0.9rem; }
+
+        /* Full Article Style (Hidden initially) */
+        .article-content { display: none; background: #1a1a2e; border: 1px solid #2a2a4a; border-radius: 15px; padding: 30px; }
+        .article-content h2 { color: #00d4ff; margin-bottom: 15px; margin-top: 25px; }
+        .article-content h1 { color: #00d4ff; margin-bottom: 20px; text-align: left; font-size: 1.8rem; }
+        .article-content p { color: #ccc; line-height: 1.8; margin-bottom: 15px; }
+        .article-content ol, .article-content ul { color: #ccc; margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #00d4ff; text-decoration: none; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
+        </div>
+        <button onclick="window.location.href='index.html'" style="background:transparent; border:none; color:#00d4ff; font-weight:bold; cursor:pointer;">
+            ← Back to Home
+        </button>
+    </header>
+
+    <div class="page-container">
+        
+        <!-- BLOG LIST (Home of blog) -->
+        <div id="blogList">
+            <h1>Our Blog</h1>
+            <p style="text-align: center; color: #aaa; margin-bottom: 30px;">Helpful guides and tips for your daily digital tasks.</p>
+
+            <!-- Article 1 Card -->
+            <a href="javascript:void(0);" onclick="openArticle()" class="blog-card">
+                <h2>How to Compress Image Size Without Losing Quality</h2>
+                <p>Learn how to reduce the file size of your images for job applications, websites, and emails using our free tool.</p>
+                <span class="read-more">Read Full Article →</span>
+            </a>
+            
+            <!-- Naye Articles Yahan Add Honge -->
+        </div>
+
+        <!-- FULL ARTICLE (Shuru mein hidden rahega) -->
+        <div id="articleView" class="article-content">
+            <span class="back-btn" onclick="closeArticle()">← Back to Blog</span>
+            
+            <h1>How to Compress Image Size Without Losing Quality</h1>
+            <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
+
+            <p>In today's digital world, we often need to upload images to various platforms. Whether it's a job application form, an email attachment, or a website, there is almost always a file size limit (like 2MB or 5MB).</p>
+
+            <p>If your image is too large, you might face upload errors. The best solution is to <b>compress the image</b>. But many people worry that compressing an image will ruin its quality. The good news is, it doesn't have to!</p>
+
+            <h2>Why Should You Compress Images?</h2>
+            <ul>
+                <li><b>Faster Website Loading:</b> If you run a blog or website, large images slow down your site.</li>
+                <li><b>Easy Uploads:</b> Compress images to meet the size limits of job portals and government forms.</li>
+                <li><b>Save Storage:</b> Keep more photos on your phone without running out of space.</li>
+            </ul>
+
+            <h2>How to Compress Image Online (Step-by-Step)</h2>
+            <p>You don't need to install any heavy software. You can use our free <b>Image Compressor Tool</b> right here on AIFreeKit.</p>
+            <ol>
+                <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+                <li>Click on the <b>🖼️ Image Compressor</b> tool.</li>
+                <li>Select the image from your phone or computer.</li>
+                <li>Adjust the quality slider (We recommend 70% for the best balance).</li>
+                <li>Click "Compress Image" and download your new, smaller file.</li>
+            </ol>
+
+            <h2>Frequently Asked Questions</h2>
+            <p><b>Q: Is this tool free?</b><br>Yes, our Image Compressor is 100% free with no limits.</p>
+            <p><b>Q: Are my photos uploaded to your server?</b><br>No, our tool processes images directly in your browser. Your privacy is safe.</p>
+            <p><b>Q: What image formats are supported?</b><br>We support JPG, PNG, and WebP formats.</p>
+
+            <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free Image Compressor</a> now!</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Made with ❤️ | © 2026 AIFreeKit</p>
+    </footer>
+
+    <!-- Blog Script -->
+    <script>
+        function openArticle() {
+            document.getElementById('blogList').style.display = 'none';
+            document.getElementById('articleView').style.display = 'block';
+            window.scrollTo(0, 0); // Page ko upar scroll karo
+        }
+
+        function closeArticle() {
+            document.getElementById('articleView').style.display = 'none';
+            document.getElementById('blogList').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
