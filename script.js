@@ -88,7 +88,12 @@ function openTool(toolId) {
         modalBody.innerHTML = '';
     }
  }
-closeBtn.onclick = closeModal;
+if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeModal();
+    });
+}
 modal.onclick = function(e) {
     if (e.target === modal) closeModal();
 };
