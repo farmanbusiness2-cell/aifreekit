@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Image Compressor Online - Reduce Image Size | AIFreeKit</title>
+    <meta name="description" content="Compress JPG, PNG, and WebP images online for free. Reduce image file size without losing quality. No login required.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Thoda extra style sirf is page ke liye */
+        .page-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .article-box { background: #1a1a2e; padding: 25px; border-radius: 15px; margin-top: 30px; border: 1px solid #2a2a4a; }
+        .article-box h2 { color: #00d4ff; margin-bottom: 15px; }
+        .article-box p { color: #ccc; margin-bottom: 15px; line-height: 1.8; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #2a2a4a; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (Menu) -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
+        </div>
+        <div class="search-box">
+            <a href="index.html" style="color: #00d4ff; text-decoration: none; font-weight: bold;">← Back to Tools</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="page-container">
+        <h1 style="text-align: center; color: #fff; margin-bottom: 20px;">Image Compressor</h1>
+        
+        <!-- Tool Area -->
+        <div class="article-box" style="text-align: center; background: #16213e;">
+            <p style="color:#aaa; font-size:0.9rem; margin-bottom: 15px;">Select an image to compress its size</p>
+            <input type="file" id="imgInput" accept="image/*" style="margin-bottom: 15px; padding: 10px; background: #0f0f1a; border-radius: 8px; border: 1px solid #2a2a4a; color: #fff; width: 100%;">
+            
+            <label style="font-size:0.85rem; color:#aaa; display:block; margin-bottom: 5px;">Quality: <span id="qv">70</span>%</label>
+            <input type="range" id="qr2" min="10" max="100" value="70" oninput="document.getElementById('qv').textContent=this.value" style="width: 100%; margin-bottom: 15px;">
+            
+            <button onclick="compressImage()" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #00d4ff, #a855f7); color: white; border: none; border-radius: 10px; font-weight: bold; font-size: 1rem; cursor: pointer;">Compress Image Now</button>
+            
+            <div id="imgResult" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- Article Area (SEO & Adsense ke liye) -->
+        <div class="article-box">
+            <h2>What is an Image Compressor?</h2>
+            <p>An image compressor is a tool that reduces the file size of an image without significantly affecting its visual quality. Large images take up a lot of storage space and make websites load slower. By using our free AIFreeKit image compressor, you can easily reduce the size of JPG, PNG, and WebP files.</p>
+            
+            <h2>Why Should You Compress Images?</h2>
+            <p>1. <b>Faster Loading:</b> If you are a website owner, compressed images will make your website load much faster.<br>
+            2. <b>Save Storage:</b> Keep more photos on your phone or computer without running out of space.<br>
+            3. <b>Easy Sharing:</b> Many platforms have upload limits (like 2MB or 5MB). Compressing images helps you upload them easily to job portals, emails, and forms.</p>
+
+            <h2>How to Use This Tool?</h2>
+            <p>1. Click on the "Select an image" button above.<br>
+            2. Choose the image from your phone or computer.<br>
+            3. Adjust the quality slider (70% is usually best).<br>
+            4. Click "Compress Image Now" and download your new file!</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">← Go to All Tools</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Made with ❤️ | © 2026 AIFreeKit</p>
+    </footer>
+
+    <!-- Tool ki JavaScript yahan hai -->
+    <script>
+        function compressImage() {
+            var fileInput = document.getElementById('imgInput');
+            var quality = document.getElementById('qr2').value / 100;
+            var result = document.getElementById('imgResult');
+            
+            if (!fileInput.files[0]) {
+                result.innerHTML = '<p style="color:#ff4757; font-weight:bold;">⚠️ Please select an image first!</p>';
+                return;
+            }
+            
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    canvas.getContext('2d').drawImage(img, 0, 0);
+                    
+                    canvas.toBlob(function(blob) {
+                        var url = URL.createObjectURL(blob);
+                        var oldKb = (file.size / 1024).toFixed(1);
+                        var newKb = (blob.size / 1024).toFixed(1);
+                        
+                        result.innerHTML = '<p style="color:#00ff88; font-size:1rem; margin-bottom:15px;">✅ Success: ' + oldKb + ' KB → ' + newKb + ' KB</p>' +
+                            '<a href="' + url + '" download="compressed-image.jpg" style="display:inline-block; padding:15px 30px; background:#00ff88; color:#000; text-decoration:none; border-radius:10px; font-weight:bold;">⬇️ Download Compressed Image</a>';
+                    }, 'image/jpeg', quality);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
