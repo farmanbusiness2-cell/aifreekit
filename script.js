@@ -78,16 +78,17 @@ function openTool(toolId) {
     else if (toolId === 'font') loadFont();
   }
 
- function closeModal() {
+  function closeModal() {
     var modal = document.getElementById('toolModal');
     if (modal) {
         modal.classList.remove('active');
+        modal.style.display = 'none'; /* Ye line button ko kaam karwayegi */
     }
     var modalBody = document.getElementById('modalBody');
     if (modalBody) {
         modalBody.innerHTML = '';
     }
- }
+  }
 if (closeBtn) {
     closeBtn.addEventListener('click', function(e) {
         e.preventDefault();
