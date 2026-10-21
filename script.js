@@ -10,6 +10,7 @@ var modalBody = document.getElementById('modalBody');
 var closeBtn = document.getElementById('closeBtn');
 
 var tools = [
+    { id: 'drawing', icon: '🎨', name: 'Drawing Board' },
     { id: 'qr', icon: '📱', name: 'QR Code Generator' },
     { id: 'image', icon: '🖼️', name: 'Image Compressor' },
     { id: 'age', icon: '🎂', name: 'Age Calculator' },
