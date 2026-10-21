@@ -640,8 +640,8 @@ function forceCloseModal() {
                 <label style="color: #aaa; font-size: 0.85rem;">Select Background:</label>
                 <select id="bgSelector" onchange="changeBackground(this.value)" style="width: 100%; padding: 8px; border-radius: 5px; background: #0f0f1a; color: #00d4ff; border: 1px solid #2a2a4a;">
                     <option value="none">Blank Canvas</option>
-                    <option value="batman.png">Batman (MCU)</option>
-                    <option value="anime1.png">Anime Character</option>
+                     <option value="images/916484639d0d79d8e1d11e8aa8ca785f.jpg">Batman (MCU)</option>
+<option value="images/80a9cfedec9784821aa9c234f3438fb.jpg">Anime Character</option>
                     <!-- Yahan hum aur images add karenge -->
                 </select>
             </div>
