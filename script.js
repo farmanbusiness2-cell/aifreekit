@@ -677,7 +677,7 @@ function forceCloseModal() {
 <option value="images/2c2d3674edc1df665f89c27a9bb4beef.jpg">Image 33</option>
 <option value="images/742e613c4118382bfe240465b2fa47b1.jpg">Image 34</option>
 <option value="images/f8bf7e1a8be4d8390b7f22963dd01318.jpg">Image 35</option>
-<option value="images/8eb6a244d15d1c0fd8c2d1d498f0df6e.jpg">Image 36 (Aakhri wali jo screenshot mein cut rahi thi)</option>
+<option value="images/8eb6a244d15d1c0fd8c2d1d498f0df6e.jpg">Image 36</option>
                     <!-- Yahan hum aur images add karenge -->
                 </select>
             </div>
