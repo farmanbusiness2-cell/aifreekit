@@ -632,34 +632,58 @@ function forceCloseModal() {
 // ==========================================
 // TOOL 17: DRAWING BOARD (Canvas)
 // ==========================================
-function loadDrawing() {
+ function loadDrawing() {
     modalBody.innerHTML = `
-        <div style="text-align: center; margin-bottom: 10px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div style="text-align: center; margin-bottom: 10px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Background Selector -->
             <div>
-                <input type="color" id="drawingColor" value="#00d4ff" style="width: 40px; height: 40px; border: none; cursor: pointer; vertical-align: middle; padding: 0;">
-                <select id="brushSize" style="width: 80px; padding: 8px; display: inline-block; margin: 0 5px; vertical-align: middle; background: #0f0f1a; color: #fff; border: 1px solid #2a2a4a; border-radius: 5px;">
-                    <option value="2">Thin</option>
-                    <option value="5" selected>Normal</option>
-                    <option value="10">Thick</option>
-                    <option value="20">Marker</option>
+                <label style="color: #aaa; font-size: 0.85rem;">Select Background:</label>
+                <select id="bgSelector" onchange="changeBackground(this.value)" style="width: 100%; padding: 8px; border-radius: 5px; background: #0f0f1a; color: #00d4ff; border: 1px solid #2a2a4a;">
+                    <option value="none">Blank Canvas</option>
+                    <option value="batman.png">Batman (MCU)</option>
+                    <option value="anime1.png">Anime Character</option>
+                    <!-- Yahan hum aur images add karenge -->
                 </select>
             </div>
-            <div>
-                <button onclick="toggleEraser()" id="eraserBtn" style="width: auto; padding: 8px 15px; margin: 0; background: #2a2a4a; color: #fff; border: 1px solid #00d4ff; font-size: 0.85rem;">🧽 Eraser</button>
-                <button onclick="clearCanvas()" style="width: auto; padding: 8px 15px; margin: 0; background: #ff4757; color: #fff; font-size: 0.85rem;">🗑️ Clear</button>
+            
+            <!-- Tools -->
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
+                <div>
+                    <input type="color" id="drawingColor" value="#00d4ff" style="width: 35px; height: 35px; border: none; cursor: pointer; vertical-align: middle; padding: 0;">
+                    <select id="brushSize" style="width: 70px; padding: 5px; display: inline-block; margin: 0 5px; vertical-align: middle; background: #0f0f1a; color: #fff; border: 1px solid #2a2a4a; border-radius: 5px;">
+                        <option value="2">Thin</option>
+                        <option value="5" selected>Normal</option>
+                        <option value="10">Thick</option>
+                    </select>
+                </div>
+                <div>
+                    <button onclick="toggleEraser()" id="eraserBtn" style="width: auto; padding: 5px 10px; margin: 0; background: #2a2a4a; color: #fff; border: 1px solid #00d4ff; font-size: 0.8rem;">🧽 Eraser</button>
+                    <button onclick="clearCanvas()" style="width: auto; padding: 5px 10px; margin: 0; background: #ff4757; color: #fff; font-size: 0.8rem;">🗑️ Clear</button>
+                </div>
             </div>
         </div>
         
+        <!-- Drawing Area -->
         <div style="position: relative; width: 100%; height: 400px; background: #ffffff; border-radius: 10px; overflow: hidden; border: 2px solid #00d4ff;">
-            <canvas id="drawCanvas" style="width: 100%; height: 100%; cursor: crosshair; touch-action: none;"></canvas>
+            <img id="bgImage" src="" style="display: none; position: absolute; width: 100%; height: 100%; object-fit: contain; pointer-events: none; z-index: 1;">
+            <canvas id="drawCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; touch-action: none; z-index: 2;"></canvas>
         </div>
         
         <button onclick="downloadDrawing()" style="margin-top: 15px; background: #00ff88; color: #000; font-weight: bold;">⬇️ Download Drawing</button>
     `;
     
-    setTimeout(initDrawingCanvas, 100); // Canvas load hone do
+    setTimeout(initDrawingCanvas, 100);
+ }
+function changeBackground(imageName) {
+    var bgImg = document.getElementById('bgImage');
+    if (imageName === 'none') {
+        bgImg.style.display = 'none';
+        bgImg.src = '';
+    } else {
+        bgImg.src = imageName; // Image ka naam
+        bgImg.style.display = 'block';
+    }
 }
-
 var isEraser = false;
 
 function initDrawingCanvas() {
