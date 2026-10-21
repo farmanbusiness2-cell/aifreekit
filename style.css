@@ -452,3 +452,55 @@ body {
     cursor: pointer !important;
     pointer-events: auto !important;
 }
+
+/* ===== FEATURED TOOL DESIGN ===== */
+.featured-tool-card {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid #00d4ff;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+}
+
+.featured-tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+
+.featured-icon {
+    font-size: 3.5rem;
+    background: #0f0f1a;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.featured-text h3 {
+    color: #00d4ff;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.featured-text p {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.try-btn {
+    color: #00ff88;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .featured-tool-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
