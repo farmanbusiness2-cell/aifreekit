@@ -74,6 +74,7 @@ function openTool(toolId) {
     else if (toolId === 'time') loadTime();
     else if (toolId === 'emoji') loadEmoji();
     else if (toolId === 'pdf') loadPDF();
+    else if (toolId === 'drawing') loadDrawing();
     else if (toolId === 'caption') loadCaption();
     else if (toolId === 'bio') loadBio();
     else if (toolId === 'hashtag') loadHashtag();
@@ -626,6 +627,147 @@ function forceCloseModal() {
     var modalBody = document.getElementById('modalBody');
     if (modalBody) {
         modalBody.innerHTML = '';
+    }
+}
+// ==========================================
+// TOOL 17: DRAWING BOARD (Canvas)
+// ==========================================
+function loadDrawing() {
+    modalBody.innerHTML = `
+        <div style="text-align: center; margin-bottom: 10px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>
+                <input type="color" id="drawingColor" value="#00d4ff" style="width: 40px; height: 40px; border: none; cursor: pointer; vertical-align: middle; padding: 0;">
+                <select id="brushSize" style="width: 80px; padding: 8px; display: inline-block; margin: 0 5px; vertical-align: middle; background: #0f0f1a; color: #fff; border: 1px solid #2a2a4a; border-radius: 5px;">
+                    <option value="2">Thin</option>
+                    <option value="5" selected>Normal</option>
+                    <option value="10">Thick</option>
+                    <option value="20">Marker</option>
+                </select>
+            </div>
+            <div>
+                <button onclick="toggleEraser()" id="eraserBtn" style="width: auto; padding: 8px 15px; margin: 0; background: #2a2a4a; color: #fff; border: 1px solid #00d4ff; font-size: 0.85rem;">🧽 Eraser</button>
+                <button onclick="clearCanvas()" style="width: auto; padding: 8px 15px; margin: 0; background: #ff4757; color: #fff; font-size: 0.85rem;">🗑️ Clear</button>
+            </div>
+        </div>
+        
+        <div style="position: relative; width: 100%; height: 400px; background: #ffffff; border-radius: 10px; overflow: hidden; border: 2px solid #00d4ff;">
+            <canvas id="drawCanvas" style="width: 100%; height: 100%; cursor: crosshair; touch-action: none;"></canvas>
+        </div>
+        
+        <button onclick="downloadDrawing()" style="margin-top: 15px; background: #00ff88; color: #000; font-weight: bold;">⬇️ Download Drawing</button>
+    `;
+    
+    setTimeout(initDrawingCanvas, 100); // Canvas load hone do
+}
+
+var isEraser = false;
+
+function initDrawingCanvas() {
+    var canvas = document.getElementById('drawCanvas');
+    if (!canvas) return;
+    
+    var ctx = canvas.getContext('2d');
+    var isDrawing = false;
+    
+    // Canvas size set karo
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // Mouse Events
+    canvas.addEventListener('mousedown', function(e) {
+        isDrawing = true;
+        draw(e, canvas, ctx);
+    });
+    canvas.addEventListener('mousemove', function(e) {
+        draw(e, canvas, ctx);
+    });
+    canvas.addEventListener('mouseup', function() { isDrawing = false; ctx.beginPath(); });
+    canvas.addEventListener('mouseout', function() { isDrawing = false; ctx.beginPath(); });
+
+    // Touch Events (Mobile)
+    canvas.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent('mousedown', { clientX: touch.clientX, clientY: touch.clientY });
+        canvas.dispatchEvent(mouseEvent);
+    }, {passive: false});
+    
+    canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent('mousemove', { clientX: touch.clientX, clientY: touch.clientY });
+        canvas.dispatchEvent(mouseEvent);
+    }, {passive: false});
+    
+    canvas.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        var mouseEvent = new MouseEvent('mouseup', {});
+        canvas.dispatchEvent(mouseEvent);
+    });
+
+    // Drawing function
+    var drawingActive = false;
+    canvas.addEventListener('mousedown', function() { drawingActive = true; });
+    canvas.addEventListener('mouseup', function() { drawingActive = false; });
+    canvas.addEventListener('mousemove', function(e) {
+        if (!drawingActive) return;
+        draw(e, canvas, ctx);
+    });
+
+    function draw(e, canvas, ctx) {
+        if (!isDrawing && !drawingActive) return;
+        
+        var rect = canvas.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        
+        ctx.lineWidth = document.getElementById('brushSize').value;
+        
+        if (isEraser) {
+            ctx.strokeStyle = '#ffffff'; // White color to erase
+        } else {
+            ctx.strokeStyle = document.getElementById('drawingColor').value;
+        }
+        
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    }
+}
+
+function toggleEraser() {
+    isEraser = !isEraser;
+    var btn = document.getElementById('eraserBtn');
+    if (isEraser) {
+        btn.style.background = '#00d4ff';
+        btn.style.color = '#000';
+        btn.textContent = '🖌️ Pen';
+    } else {
+        btn.style.background = '#2a2a4a';
+        btn.style.color = '#fff';
+        btn.textContent = '🧽 Eraser';
+    }
+}
+
+function clearCanvas() {
+    var canvas = document.getElementById('drawCanvas');
+    if (canvas) {
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+}
+
+function downloadDrawing() {
+    var canvas = document.getElementById('drawCanvas');
+    if (canvas) {
+        var link = document.createElement('a');
+        link.download = 'AIFreeKit-Drawing.png';
+        link.href = canvas.toDataURL();
+        link.click();
     }
 }
 console.log('AIFreeKit ready!');
