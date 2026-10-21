@@ -641,7 +641,43 @@ function forceCloseModal() {
                 <select id="bgSelector" onchange="changeBackground(this.value)" style="width: 100%; padding: 8px; border-radius: 5px; background: #0f0f1a; color: #00d4ff; border: 1px solid #2a2a4a;">
                     <option value="none">Blank Canvas</option>
                      <option value="images/916484639d0d79d8e1d11e8aa8ca785f.jpg">Batman (MCU)</option>
-<option value="images/80a9cfedec9784821aa9c234f3438fb.jpg">Anime Character</option>
+                    <option value="images/80a9cfedec9784821aa9c234f3438fb.jpg">Anime Character</option>
+                    <option value="images/916484639d0d79d8e1d11e8aa8ca785f.jpg">Image 1</option>
+<option value="images/236dc5f259d4f20f5806c07f623de870.jpg">Image 2</option>
+<option value="images/00823857d6acfed4ee3d27c94009faec.jpg">Image 3</option>
+<option value="images/d517328b9674e082d4d766754163b77e.jpg">Image 4</option>
+<option value="images/80a9cfedec9784821aa9c234f3438fb.jpg">Image 5</option>
+<option value="images/218e3cd2ed8c9f90bf247fa332e96088.jpg">Image 6</option>
+<option value="images/5b1e073bf8ae3fdb267cbd63e9ae1cf2.jpg">Image 7</option>
+<option value="images/76f692f15961e8f29dce17454f62a4a7.jpg">Image 8</option>
+<option value="images/264a8b550470ca2ae39c4dccf00d40d3.jpg">Image 9</option>
+<option value="images/6d73e026658ed0991ceb0ffee8efbefb.jpg">Image 10</option>
+<option value="images/c62df7258e4ea7184b5b6b7bb878a345.jpg">Image 11</option>
+<option value="images/182760034e16e418de9a69d75f06268a.jpg">Image 12</option>
+<option value="images/af2184b4305697d5b8df6329d9c1acd2.jpg">Image 13</option>
+<option value="images/c903a7e8f6c106b44a6af8152acff3b5.jpg">Image 14</option>
+<option value="images/d230bd65b5108fd2f88a4351144d7b54.jpg">Image 15</option>
+<option value="images/d6e7ca6a2a071906f1075114ed8d6965.jpg">Image 16</option>
+<option value="images/57eafb637b2af8d9f8cdf8fe3a7d3f34.jpg">Image 17</option>
+<option value="images/a50a4a55aaf5df0885720d2ba6f4d39e.jpg">Image 18</option>
+<option value="images/1faaffc64e56dc1da7809e681932bc89.jpg">Image 19</option>
+<option value="images/a140c624f49739143396fd1942e98a50.jpg">Image 20</option>
+<option value="images/b25d93faff63f207460772740d4a9915.jpg">Image 21</option>
+<option value="images/fffc01ef395fdf5358070312e6050f4f.jpg">Image 22</option>
+<option value="images/85a411f38e894d3913202a3734dcca44.jpg">Image 23</option>
+<option value="images/a23aeb993a271c1a04a302c09380e7e2.jpg">Image 24</option>
+<option value="images/bd1e5f1760e00231c0ed8cb52c8bdd8d.jpg">Image 25</option>
+<option value="images/171db2816c3b628ef4aee1a8e66a9531.jpg">Image 26</option>
+<option value="images/ace4e15195214b6a5f3ebda10e158a84.jpg">Image 27</option>
+<option value="images/fodc43ec0dd1e5b7ba7d9325fc93ec9a.jpg">Image 28</option>
+<option value="images/c11e9c12b8c56abdbfe11d6cd22ba17c40.jpg">Image 29</option>
+<option value="images/3a99b5ac051fea273365a89abd23fd2e.jpg">Image 30</option>
+<option value="images/f3dabd8cc3c342dcf3b99d2e9cbb2ea1.jpg">Image 31</option>
+<option value="images/a1dc7a3b7e152f6a17e7a6d9258950a8.jpg">Image 32</option>
+<option value="images/2c2d3674edc1df665f89c27a9bb4beef.jpg">Image 33</option>
+<option value="images/742e613c4118382bfe240465b2fa47b1.jpg">Image 34</option>
+<option value="images/f8bf7e1a8be4d8390b7f22963dd01318.jpg">Image 35</option>
+<option value="images/8eb6a244d15d1c0fd8c2d1d498f0df6e.jpg">Image 36 (Aakhri wali jo screenshot mein cut rahi thi)</option>
                     <!-- Yahan hum aur images add karenge -->
                 </select>
             </div>
