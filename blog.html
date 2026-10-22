@@ -56,6 +56,12 @@
             
             <!-- Naye Articles Yahan Add Honge -->
         </div>
+        <!-- Article 4 Card (QR Code) -->
+<a href="javascript:void(0);" onclick="openQRArticle()" class="blog-card">
+    <h2>How to Create a QR Code for Free (Step-by-Step Guide)</h2>
+    <p>Learn how to generate a high-quality QR code for your website, business, or WiFi network in seconds.</p>
+    <span class="read-more">Read Full Article →</span>
+</a>
 <!-- Article 3 Card (EMI Calculator) -->
 <a href="javascript:void(0);" onclick="openEMIArticle()" class="blog-card">
     <h2>What is EMI and How to Calculate It? (Simple Guide)</h2>
@@ -167,6 +173,42 @@
 
     <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free EMI Calculator</a> now!</p>
 </div>
+    <!-- FULL QR ARTICLE (Hidden initially) -->
+<div id="qrArticleView" class="article-content">
+    <span class="back-btn" onclick="closeQRArticle()">← Back to Blog</span>
+    
+    <h1>How to Create a QR Code for Free (Step-by-Step Guide)</h1>
+    <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
+
+    <p>Have you noticed those small square barcodes everywhere? On restaurant menus, product packaging, and shop windows? These are called <b>QR (Quick Response) codes</b>. They are the fastest way to share information today.</p>
+
+    <h2>What is a QR Code?</h2>
+    <p>A QR code is a type of barcode that can be read easily by a digital device like a smartphone camera. It stores information such as a website link, text, phone number, or WiFi password. When you scan it, the information opens instantly on your phone.</p>
+
+    <h2>Why Should You Use a QR Code?</h2>
+    <ul>
+        <li><b>For Business:</b> Share your website link, menu, or payment details instantly.</li>
+        <li><b>For Events:</b> Put it on invitations so people can get directions or RSVP.</li>
+        <li><b>For Personal Use:</b> Share your social media profile or WiFi password without typing.</li>
+    </ul>
+
+    <h2>How to Generate a QR Code Online (Free)</h2>
+    <p>You don't need to download expensive apps. Our free <b>AIFreeKit QR Code Generator</b> makes it super easy:</p>
+    <ol>
+        <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+        <li>Click on the <b>📱 QR Code Generator</b> tool.</li>
+        <li>Enter your text or paste the website link.</li>
+        <li>Click "Generate QR Code".</li>
+        <li>Your unique QR code will appear instantly! Long-press on the image to download and save it.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions (FAQs)</h2>
+    <p><b>Q: Is this QR Code generator really free?</b><br>Yes, 100% free. There are no limits and no watermarks.</p>
+    <p><b>Q: Do QR codes expire?</b><br>No, static QR codes (like the ones generated on our site) never expire. They work forever.</p>
+    <p><b>Q: Can I use these QR codes for commercial purposes?</b><br>Absolutely! You can print them on your business cards, menus, or products.</p>
+
+    <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Create your free QR Code now using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's QR Generator</a>!</p>
+</div>
     <!-- FOOTER -->
     <footer class="footer">
         <p>Made with ❤️ | © 2026 AIFreeKit</p>
@@ -204,6 +246,17 @@ function closeAgeArticle() {
 
 function closeEMIArticle() {
     document.getElementById('emiArticleView').style.display = 'none';
+    document.getElementById('blogList').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+        function openQRArticle() {
+    document.getElementById('blogList').style.display = 'none';
+    document.getElementById('qrArticleView').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function closeQRArticle() {
+    document.getElementById('qrArticleView').style.display = 'none';
     document.getElementById('blogList').style.display = 'block';
     window.scrollTo(0, 0);
 }
