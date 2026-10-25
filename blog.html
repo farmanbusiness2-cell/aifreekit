@@ -281,3 +281,16 @@
         function closeQRArticle() {
             document.getElementById('qrArticleView').style.display = 'none';
             document.getElementById('blogList').style.display = 'blo
+
+        }
+        function openPassArticle() {
+    document.getElementById('blogList').style.display = 'none';
+    document.getElementById('passArticleView').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function closePassArticle() {
+    document.getElementById('passArticleView').style.display = 'none';
+    document.getElementById('blogList').style.display = 'block';
+    window.scrollTo(0, 0);
+}
