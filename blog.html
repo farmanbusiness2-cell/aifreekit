@@ -56,6 +56,12 @@
             
             <!-- Naye Articles Yahan Add Honge -->
         </div>
+        <!-- Article 5 Card (Password Generator) -->
+<a href="javascript:void(0);" onclick="openPassArticle()" class="blog-card">
+    <h2>Why You Need a Strong Password (And How to Create One)</h2>
+    <p>Learn why weak passwords are dangerous and how to create an unbreakable password using our free tool.</p>
+    <span class="read-more">Read Full Article →</span>
+</a>
         <!-- Article 4 Card (QR Code) -->
 <a href="javascript:void(0);" onclick="openQRArticle()" class="blog-card">
     <h2>How to Create a QR Code for Free (Step-by-Step Guide)</h2>
@@ -209,6 +215,45 @@
 
     <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Create your free QR Code now using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's QR Generator</a>!</p>
 </div>
+    <!-- FULL PASSWORD ARTICLE (Hidden initially) -->
+<div id="passArticleView" class="article-content">
+    <span class="back-btn" onclick="closePassArticle()">← Back to Blog</span>
+    
+    <h1>Why You Need a Strong Password (And How to Create One)</h1>
+    <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
+
+    <p>In today's digital world, our entire lives are on the internet. From social media accounts to bank details, everything is protected by a single thing: <b>Your Password</b>.</p>
+
+    <p>Most people use easy-to-remember passwords like their name, date of birth, or "123456". But did you know that hackers can crack these weak passwords in just a few seconds using automated software?</p>
+
+    <h2>Why Weak Passwords are Dangerous</h2>
+    <p>If a hacker gets access to your email or social media, they can steal your personal information, send spam to your contacts, or even access your bank accounts. Using the same password for multiple websites is even more dangerous, because if one website gets hacked, all your accounts become vulnerable.</p>
+
+    <h2>What Makes a Password Strong?</h2>
+    <p>A strong password should have these three things:</p>
+    <ul>
+        <li><b>Length:</b> It should be at least 12-16 characters long.</li>
+        <li><b>Complexity:</b> It should include a mix of Uppercase letters (A-Z), Lowercase letters (a-z), Numbers (0-9), and Special Symbols (!@#$%).</li>
+        <li><b>Unpredictability:</b> It should not contain any dictionary words, names, or common patterns.</li>
+    </ul>
+
+    <h2>How to Create a Strong Password Instantly</h2>
+    <p>Thinking of a random password is hard. That's why we built a free tool for you. Here's how to use it:</p>
+    <ol>
+        <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+        <li>Click on the <b>🔐 Password Generator</b> tool.</li>
+        <li>Use the slider to choose your desired length (we recommend 16).</li>
+        <li>Click "Generate Password".</li>
+        <li>Copy the password and save it in a safe place (like a password manager).</li>
+    </ol>
+
+    <h2>Frequently Asked Questions</h2>
+    <p><b>Q: Are these generated passwords safe to use?</b><br>Yes, our tool uses strong random algorithms to generate passwords that are extremely hard to guess.</p>
+    <p><b>Q: Does AIFreeKit save my passwords?</b><br>Absolutely not. The generation happens directly in your browser. We do not see or store any of your passwords.</p>
+    <p><b>Q: How often should I change my password?</b><br>It is a good habit to change your important passwords (like email and banking) every 3 to 6 months.</p>
+
+    <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Secure your accounts today using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's Password Generator</a>!</p>
+</div>
     <!-- FOOTER -->
     <footer class="footer">
         <p>Made with ❤️ | © 2026 AIFreeKit</p>
@@ -257,6 +302,17 @@ function closeEMIArticle() {
 
 function closeQRArticle() {
     document.getElementById('qrArticleView').style.display = 'none';
+    document.getElementById('blogList').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+        function openPassArticle() {
+    document.getElementById('blogList').style.display = 'none';
+    document.getElementById('passArticleView').style.display = 'block';
+    window.scrollTo(0, 0);
+}
+
+function closePassArticle() {
+    document.getElementById('passArticleView').style.display = 'none';
     document.getElementById('blogList').style.display = 'block';
     window.scrollTo(0, 0);
 }
