@@ -42,62 +42,66 @@
 
     <div class="page-container">
         
-        <!-- BLOG LIST (Home of blog) -->
+        <!-- ========================================== -->
+        <!-- 1. BLOG LIST (All Article Cards)           -->
+        <!-- ========================================== -->
         <div id="blogList">
             <h1>Our Blog</h1>
             <p style="text-align: center; color: #aaa; margin-bottom: 30px;">Helpful guides and tips for your daily digital tasks.</p>
 
-            <!-- Article 1 Card -->
+            <!-- Article 1 Card (Image) -->
             <a href="javascript:void(0);" onclick="openArticle()" class="blog-card">
                 <h2>How to Compress Image Size Without Losing Quality</h2>
                 <p>Learn how to reduce the file size of your images for job applications, websites, and emails using our free tool.</p>
                 <span class="read-more">Read Full Article →</span>
             </a>
-            
-            <!-- Naye Articles Yahan Add Honge -->
+
+            <!-- Article 2 Card (Age) -->
+            <a href="javascript:void(0);" onclick="openAgeArticle()" class="blog-card">
+                <h2>How to Calculate Your Exact Age (Step-by-Step)</h2>
+                <p>Learn how to calculate your age in years, months, and days. Perfect for filling out forms and job applications.</p>
+                <span class="read-more">Read Full Article →</span>
+            </a>
+
+            <!-- Article 3 Card (EMI) -->
+            <a href="javascript:void(0);" onclick="openEMIArticle()" class="blog-card">
+                <h2>What is EMI and How to Calculate It? (Simple Guide)</h2>
+                <p>Planning to take a loan? Learn what EMI is, how the formula works, and how to check your monthly payments easily.</p>
+                <span class="read-more">Read Full Article →</span>
+            </a>
+
+            <!-- Article 4 Card (QR) -->
+            <a href="javascript:void(0);" onclick="openQRArticle()" class="blog-card">
+                <h2>How to Create a QR Code for Free (Step-by-Step Guide)</h2>
+                <p>Learn how to generate a high-quality QR code for your website, business, or WiFi network in seconds.</p>
+                <span class="read-more">Read Full Article →</span>
+            </a>
+
+            <!-- Article 5 Card (Password) -->
+            <a href="javascript:void(0);" onclick="openPassArticle()" class="blog-card">
+                <h2>Why You Need a Strong Password (And How to Create One)</h2>
+                <p>Learn why weak passwords are dangerous and how to create an unbreakable password using our free tool.</p>
+                <span class="read-more">Read Full Article →</span>
+            </a>
         </div>
-        <!-- Article 5 Card (Password Generator) -->
-<a href="javascript:void(0);" onclick="openPassArticle()" class="blog-card">
-    <h2>Why You Need a Strong Password (And How to Create One)</h2>
-    <p>Learn why weak passwords are dangerous and how to create an unbreakable password using our free tool.</p>
-    <span class="read-more">Read Full Article →</span>
-</a>
-        <!-- Article 4 Card (QR Code) -->
-<a href="javascript:void(0);" onclick="openQRArticle()" class="blog-card">
-    <h2>How to Create a QR Code for Free (Step-by-Step Guide)</h2>
-    <p>Learn how to generate a high-quality QR code for your website, business, or WiFi network in seconds.</p>
-    <span class="read-more">Read Full Article →</span>
-</a>
-<!-- Article 3 Card (EMI Calculator) -->
-<a href="javascript:void(0);" onclick="openEMIArticle()" class="blog-card">
-    <h2>What is EMI and How to Calculate It? (Simple Guide)</h2>
-    <p>Planning to take a loan? Learn what EMI is, how the formula works, and how to check your monthly payments easily.</p>
-    <span class="read-more">Read Full Article →</span>
-</a>
-        <!-- Article 2 Card (Age Calculator) -->
-<a href="javascript:void(0);" onclick="openAgeArticle()" class="blog-card">
-    <h2>How to Calculate Your Exact Age (Step-by-Step)</h2>
-    <p>Learn how to calculate your age in years, months, and days. Perfect for filling out forms and job applications.</p>
-    <span class="read-more">Read Full Article →</span>
-</a>
-        <!-- FULL ARTICLE (Shuru mein hidden rahega) -->
+
+        <!-- ========================================== -->
+        <!-- 2. FULL ARTICLES (Hidden by default)       -->
+        <!-- ========================================== -->
+
+        <!-- Article 1 View -->
         <div id="articleView" class="article-content">
             <span class="back-btn" onclick="closeArticle()">← Back to Blog</span>
-            
             <h1>How to Compress Image Size Without Losing Quality</h1>
             <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
-
             <p>In today's digital world, we often need to upload images to various platforms. Whether it's a job application form, an email attachment, or a website, there is almost always a file size limit (like 2MB or 5MB).</p>
-
             <p>If your image is too large, you might face upload errors. The best solution is to <b>compress the image</b>. But many people worry that compressing an image will ruin its quality. The good news is, it doesn't have to!</p>
-
             <h2>Why Should You Compress Images?</h2>
             <ul>
                 <li><b>Faster Website Loading:</b> If you run a blog or website, large images slow down your site.</li>
                 <li><b>Easy Uploads:</b> Compress images to meet the size limits of job portals and government forms.</li>
                 <li><b>Save Storage:</b> Keep more photos on your phone without running out of space.</li>
             </ul>
-
             <h2>How to Compress Image Online (Step-by-Step)</h2>
             <p>You don't need to install any heavy software. You can use our free <b>Image Compressor Tool</b> right here on AIFreeKit.</p>
             <ol>
@@ -107,153 +111,128 @@
                 <li>Adjust the quality slider (We recommend 70% for the best balance).</li>
                 <li>Click "Compress Image" and download your new, smaller file.</li>
             </ol>
-
             <h2>Frequently Asked Questions</h2>
             <p><b>Q: Is this tool free?</b><br>Yes, our Image Compressor is 100% free with no limits.</p>
             <p><b>Q: Are my photos uploaded to your server?</b><br>No, our tool processes images directly in your browser. Your privacy is safe.</p>
             <p><b>Q: What image formats are supported?</b><br>We support JPG, PNG, and WebP formats.</p>
-
             <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free Image Compressor</a> now!</p>
         </div>
 
-    </div>
-<!-- FULL AGE ARTICLE (Hidden initially) -->
-<div id="ageArticleView" class="article-content">
-    <span class="back-btn" onclick="closeAgeArticle()">← Back to Blog</span>
-    
-    <h1>How to Calculate Your Exact Age (Step-by-Step)</h1>
-    <p><i>Published on: October 2026 | Reading time: 2 mins</i></p>
+        <!-- Article 2 View -->
+        <div id="ageArticleView" class="article-content">
+            <span class="back-btn" onclick="closeAgeArticle()">← Back to Blog</span>
+            <h1>How to Calculate Your Exact Age (Step-by-Step)</h1>
+            <p><i>Published on: October 2026 | Reading time: 2 mins</i></p>
+            <p>Knowing your exact age is important for many reasons. Whether you are applying for a government job, filling out a school admission form, or checking your retirement date, you often need your age in years, months, and days.</p>
+            <h2>Why is Calculating Exact Age Tricky?</h2>
+            <p>Most people just subtract their birth year from the current year. But that doesn't give the exact age. You have to consider leap years, the number of days in each month, and your exact birth date. Doing this manually can lead to mistakes.</p>
+            <h2>How to Use Our Free Age Calculator</h2>
+            <p>You don't need to do complex math. Our free tool does it for you in seconds:</p>
+            <ol>
+                <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+                <li>Click on the <b>🎂 Age Calculator</b> tool.</li>
+                <li>Select your Date of Birth from the calendar.</li>
+                <li>Click "Calculate Age".</li>
+                <li>Instantly see your exact age in Years, Months, and Days, along with your total days lived!</li>
+            </ol>
+            <h2>Frequently Asked Questions</h2>
+            <p><b>Q: Is this tool free?</b><br>Yes, our Age Calculator is 100% free and requires no signup.</p>
+            <p><b>Q: Is my birth date saved?</b><br>No. The calculation happens directly in your browser. We do not save your personal data.</p>
+            <p><b>Q: Can I calculate age for a future date?</b><br>Our tool calculates age from your birth date to today's date.</p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free Age Calculator</a> now!</p>
+        </div>
 
-    <p>Knowing your exact age is important for many reasons. Whether you are applying for a government job, filling out a school admission form, or checking your retirement date, you often need your age in years, months, and days.</p>
+        <!-- Article 3 View -->
+        <div id="emiArticleView" class="article-content">
+            <span class="back-btn" onclick="closeEMIArticle()">← Back to Blog</span>
+            <h1>What is EMI and How to Calculate It? (Simple Guide)</h1>
+            <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
+            <p>If you are planning to buy a house, a car, or need an education loan, you have definitely heard the term <b>EMI</b>. But what exactly does it mean, and how does it affect your monthly budget?</p>
+            <h2>What is EMI?</h2>
+            <p>EMI stands for <b>Equated Monthly Installment</b>. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. When you take a loan, the bank gives you the full amount, and you pay it back in small parts (EMIs) over a few years.</p>
+            <h2>Why is Calculating EMI Important?</h2>
+            <p>Before taking any loan, it is very important to know your EMI. If your EMI is too high, it can ruin your monthly budget. Calculating EMI in advance helps you decide how much loan you can afford.</p>
+            <h2>How to Use Our Free EMI Calculator</h2>
+            <p>Calculating EMI manually using a complex math formula is very difficult and time-consuming. Our free tool does it in milliseconds:</p>
+            <ol>
+                <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+                <li>Click on the <b>🧮 EMI Calculator</b> tool.</li>
+                <li>Enter the Loan Amount (e.g., 500000).</li>
+                <li>Enter the Interest Rate per year (e.g., 10%).</li>
+                <li>Enter the Tenure in months (e.g., 60 months for 5 years).</li>
+                <li>Click "Calculate EMI" to instantly see your monthly payment and total interest!</li>
+            </ol>
+            <h2>Frequently Asked Questions</h2>
+            <p><b>Q: Is this EMI calculator free?</b><br>Yes, it is 100% free to use.</p>
+            <p><b>Q: Does a longer tenure mean lower EMI?</b><br>Yes, but you will end up paying more interest overall.</p>
+            <p><b>Q: Is my financial data safe?</b><br>Absolutely. Our calculator runs in your browser, so none of your numbers are saved.</p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free EMI Calculator</a> now!</p>
+        </div>
 
-    <h2>Why is Calculating Exact Age Tricky?</h2>
-    <p>Most people just subtract their birth year from the current year. But that doesn't give the exact age. You have to consider leap years, the number of days in each month, and your exact birth date. Doing this manually can lead to mistakes.</p>
+        <!-- Article 4 View -->
+        <div id="qrArticleView" class="article-content">
+            <span class="back-btn" onclick="closeQRArticle()">← Back to Blog</span>
+            <h1>How to Create a QR Code for Free (Step-by-Step Guide)</h1>
+            <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
+            <p>Have you noticed those small square barcodes everywhere? On restaurant menus, product packaging, and shop windows? These are called <b>QR (Quick Response) codes</b>. They are the fastest way to share information today.</p>
+            <h2>What is a QR Code?</h2>
+            <p>A QR code is a type of barcode that can be read easily by a digital device like a smartphone camera. It stores information such as a website link, text, phone number, or WiFi password. When you scan it, the information opens instantly on your phone.</p>
+            <h2>Why Should You Use a QR Code?</h2>
+            <ul>
+                <li><b>For Business:</b> Share your website link, menu, or payment details instantly.</li>
+                <li><b>For Events:</b> Put it on invitations so people can get directions or RSVP.</li>
+                <li><b>For Personal Use:</b> Share your social media profile or WiFi password without typing.</li>
+            </ul>
+            <h2>How to Generate a QR Code Online (Free)</h2>
+            <p>You don't need to download expensive apps. Our free <b>AIFreeKit QR Code Generator</b> makes it super easy:</p>
+            <ol>
+                <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+                <li>Click on the <b>📱 QR Code Generator</b> tool.</li>
+                <li>Enter your text or paste the website link.</li>
+                <li>Click "Generate QR Code".</li>
+                <li>Your unique QR code will appear instantly! Long-press on the image to download and save it.</li>
+            </ol>
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <p><b>Q: Is this QR Code generator really free?</b><br>Yes, 100% free. There are no limits and no watermarks.</p>
+            <p><b>Q: Do QR codes expire?</b><br>No, static QR codes (like the ones generated on our site) never expire. They work forever.</p>
+            <p><b>Q: Can I use these QR codes for commercial purposes?</b><br>Absolutely! You can print them on your business cards, menus, or products.</p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Create your free QR Code now using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's QR Generator</a>!</p>
+        </div>
 
-    <h2>How to Use Our Free Age Calculator</h2>
-    <p>You don't need to do complex math. Our free tool does it for you in seconds:</p>
-    <ol>
-        <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
-        <li>Click on the <b>🎂 Age Calculator</b> tool.</li>
-        <li>Select your Date of Birth from the calendar.</li>
-        <li>Click "Calculate Age".</li>
-        <li>Instantly see your exact age in Years, Months, and Days, along with your total days lived!</li>
-    </ol>
+        <!-- Article 5 View -->
+        <div id="passArticleView" class="article-content">
+            <span class="back-btn" onclick="closePassArticle()">← Back to Blog</span>
+            <h1>Why You Need a Strong Password (And How to Create One)</h1>
+            <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
+            <p>In today's digital world, our entire lives are on the internet. From social media accounts to bank details, everything is protected by a single thing: <b>Your Password</b>.</p>
+            <p>Most people use easy-to-remember passwords like their name, date of birth, or "123456". But did you know that hackers can crack these weak passwords in just a few seconds using automated software?</p>
+            <h2>Why Weak Passwords are Dangerous</h2>
+            <p>If a hacker gets access to your email or social media, they can steal your personal information, send spam to your contacts, or even access your bank accounts. Using the same password for multiple websites is even more dangerous, because if one website gets hacked, all your accounts become vulnerable.</p>
+            <h2>What Makes a Password Strong?</h2>
+            <p>A strong password should have these three things:</p>
+            <ul>
+                <li><b>Length:</b> It should be at least 12-16 characters long.</li>
+                <li><b>Complexity:</b> It should include a mix of Uppercase letters (A-Z), Lowercase letters (a-z), Numbers (0-9), and Special Symbols (!@#$%).</li>
+                <li><b>Unpredictability:</b> It should not contain any dictionary words, names, or common patterns.</li>
+            </ul>
+            <h2>How to Create a Strong Password Instantly</h2>
+            <p>Thinking of a random password is hard. That's why we built a free tool for you. Here's how to use it:</p>
+            <ol>
+                <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
+                <li>Click on the <b>🔐 Password Generator</b> tool.</li>
+                <li>Use the slider to choose your desired length (we recommend 16).</li>
+                <li>Click "Generate Password".</li>
+                <li>Copy the password and save it in a safe place (like a password manager).</li>
+            </ol>
+            <h2>Frequently Asked Questions</h2>
+            <p><b>Q: Are these generated passwords safe to use?</b><br>Yes, our tool uses strong random algorithms to generate passwords that are extremely hard to guess.</p>
+            <p><b>Q: Does AIFreeKit save my passwords?</b><br>Absolutely not. The generation happens directly in your browser. We do not see or store any of your passwords.</p>
+            <p><b>Q: How often should I change my password?</b><br>It is a good habit to change your important passwords (like email and banking) every 3 to 6 months.</p>
+            <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Secure your accounts today using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's Password Generator</a>!</p>
+        </div>
 
-    <h2>Frequently Asked Questions</h2>
-    <p><b>Q: Is this tool free?</b><br>Yes, our Age Calculator is 100% free and requires no signup.</p>
-    <p><b>Q: Is my birth date saved?</b><br>No. The calculation happens directly in your browser. We do not save your personal data.</p>
-    <p><b>Q: Can I calculate age for a future date?</b><br>Our tool calculates age from your birth date to today's date.</p>
+    </div> <!-- End of page-container -->
 
-    <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free Age Calculator</a> now!</p>
-</div>
-    <!-- FULL EMI ARTICLE (Hidden initially) -->
-<div id="emiArticleView" class="article-content">
-    <span class="back-btn" onclick="closeEMIArticle()">← Back to Blog</span>
-    
-    <h1>What is EMI and How to Calculate It? (Simple Guide)</h1>
-    <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
-
-    <p>If you are planning to buy a house, a car, or need an education loan, you have definitely heard the term <b>EMI</b>. But what exactly does it mean, and how does it affect your monthly budget?</p>
-
-    <h2>What is EMI?</h2>
-    <p>EMI stands for <b>Equated Monthly Installment</b>. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. When you take a loan, the bank gives you the full amount, and you pay it back in small parts (EMIs) over a few years.</p>
-
-    <h2>Why is Calculating EMI Important?</h2>
-    <p>Before taking any loan, it is very important to know your EMI. If your EMI is too high, it can ruin your monthly budget. Calculating EMI in advance helps you decide how much loan you can afford.</p>
-
-    <h2>How to Use Our Free EMI Calculator</h2>
-    <p>Calculating EMI manually using a complex math formula is very difficult and time-consuming. Our free tool does it in milliseconds:</p>
-    <ol>
-        <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
-        <li>Click on the <b>🧮 EMI Calculator</b> tool.</li>
-        <li>Enter the Loan Amount (e.g., 500000).</li>
-        <li>Enter the Interest Rate per year (e.g., 10%).</li>
-        <li>Enter the Tenure in months (e.g., 60 months for 5 years).</li>
-        <li>Click "Calculate EMI" to instantly see your monthly payment and total interest!</li>
-    </ol>
-
-    <h2>Frequently Asked Questions</h2>
-    <p><b>Q: Is this EMI calculator free?</b><br>Yes, it is 100% free to use.</p>
-    <p><b>Q: Does a longer tenure mean lower EMI?</b><br>Yes, but you will end up paying more interest overall.</p>
-    <p><b>Q: Is my financial data safe?</b><br>Absolutely. Our calculator runs in your browser, so none of your numbers are saved.</p>
-
-    <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Try our <a href="index.html" style="color:#00d4ff; text-decoration: underline;">Free EMI Calculator</a> now!</p>
-</div>
-    <!-- FULL QR ARTICLE (Hidden initially) -->
-<div id="qrArticleView" class="article-content">
-    <span class="back-btn" onclick="closeQRArticle()">← Back to Blog</span>
-    
-    <h1>How to Create a QR Code for Free (Step-by-Step Guide)</h1>
-    <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
-
-    <p>Have you noticed those small square barcodes everywhere? On restaurant menus, product packaging, and shop windows? These are called <b>QR (Quick Response) codes</b>. They are the fastest way to share information today.</p>
-
-    <h2>What is a QR Code?</h2>
-    <p>A QR code is a type of barcode that can be read easily by a digital device like a smartphone camera. It stores information such as a website link, text, phone number, or WiFi password. When you scan it, the information opens instantly on your phone.</p>
-
-    <h2>Why Should You Use a QR Code?</h2>
-    <ul>
-        <li><b>For Business:</b> Share your website link, menu, or payment details instantly.</li>
-        <li><b>For Events:</b> Put it on invitations so people can get directions or RSVP.</li>
-        <li><b>For Personal Use:</b> Share your social media profile or WiFi password without typing.</li>
-    </ul>
-
-    <h2>How to Generate a QR Code Online (Free)</h2>
-    <p>You don't need to download expensive apps. Our free <b>AIFreeKit QR Code Generator</b> makes it super easy:</p>
-    <ol>
-        <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
-        <li>Click on the <b>📱 QR Code Generator</b> tool.</li>
-        <li>Enter your text or paste the website link.</li>
-        <li>Click "Generate QR Code".</li>
-        <li>Your unique QR code will appear instantly! Long-press on the image to download and save it.</li>
-    </ol>
-
-    <h2>Frequently Asked Questions (FAQs)</h2>
-    <p><b>Q: Is this QR Code generator really free?</b><br>Yes, 100% free. There are no limits and no watermarks.</p>
-    <p><b>Q: Do QR codes expire?</b><br>No, static QR codes (like the ones generated on our site) never expire. They work forever.</p>
-    <p><b>Q: Can I use these QR codes for commercial purposes?</b><br>Absolutely! You can print them on your business cards, menus, or products.</p>
-
-    <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Create your free QR Code now using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's QR Generator</a>!</p>
-</div>
-    <!-- FULL PASSWORD ARTICLE (Hidden initially) -->
-<div id="passArticleView" class="article-content">
-    <span class="back-btn" onclick="closePassArticle()">← Back to Blog</span>
-    
-    <h1>Why You Need a Strong Password (And How to Create One)</h1>
-    <p><i>Published on: October 2026 | Reading time: 3 mins</i></p>
-
-    <p>In today's digital world, our entire lives are on the internet. From social media accounts to bank details, everything is protected by a single thing: <b>Your Password</b>.</p>
-
-    <p>Most people use easy-to-remember passwords like their name, date of birth, or "123456". But did you know that hackers can crack these weak passwords in just a few seconds using automated software?</p>
-
-    <h2>Why Weak Passwords are Dangerous</h2>
-    <p>If a hacker gets access to your email or social media, they can steal your personal information, send spam to your contacts, or even access your bank accounts. Using the same password for multiple websites is even more dangerous, because if one website gets hacked, all your accounts become vulnerable.</p>
-
-    <h2>What Makes a Password Strong?</h2>
-    <p>A strong password should have these three things:</p>
-    <ul>
-        <li><b>Length:</b> It should be at least 12-16 characters long.</li>
-        <li><b>Complexity:</b> It should include a mix of Uppercase letters (A-Z), Lowercase letters (a-z), Numbers (0-9), and Special Symbols (!@#$%).</li>
-        <li><b>Unpredictability:</b> It should not contain any dictionary words, names, or common patterns.</li>
-    </ul>
-
-    <h2>How to Create a Strong Password Instantly</h2>
-    <p>Thinking of a random password is hard. That's why we built a free tool for you. Here's how to use it:</p>
-    <ol>
-        <li>Go to the <a href="index.html" style="color:#00d4ff;">AIFreeKit Home Page</a>.</li>
-        <li>Click on the <b>🔐 Password Generator</b> tool.</li>
-        <li>Use the slider to choose your desired length (we recommend 16).</li>
-        <li>Click "Generate Password".</li>
-        <li>Copy the password and save it in a safe place (like a password manager).</li>
-    </ol>
-
-    <h2>Frequently Asked Questions</h2>
-    <p><b>Q: Are these generated passwords safe to use?</b><br>Yes, our tool uses strong random algorithms to generate passwords that are extremely hard to guess.</p>
-    <p><b>Q: Does AIFreeKit save my passwords?</b><br>Absolutely not. The generation happens directly in your browser. We do not see or store any of your passwords.</p>
-    <p><b>Q: How often should I change my password?</b><br>It is a good habit to change your important passwords (like email and banking) every 3 to 6 months.</p>
-
-    <p style="margin-top: 30px; font-weight: bold; color: #00d4ff;">Secure your accounts today using <a href="index.html" style="color:#00d4ff; text-decoration: underline;">AIFreeKit's Password Generator</a>!</p>
-</div>
     <!-- FOOTER -->
     <footer class="footer">
         <p>Made with ❤️ | © 2026 AIFreeKit</p>
@@ -264,58 +243,41 @@
         function openArticle() {
             document.getElementById('blogList').style.display = 'none';
             document.getElementById('articleView').style.display = 'block';
-            window.scrollTo(0, 0); // Page ko upar scroll karo
+            window.scrollTo(0, 0);
         }
-
         function closeArticle() {
             document.getElementById('articleView').style.display = 'none';
             document.getElementById('blogList').style.display = 'block';
             window.scrollTo(0, 0);
         }
+
         function openAgeArticle() {
-    document.getElementById('blogList').style.display = 'none';
-    document.getElementById('ageArticleView').style.display = 'block';
-    window.scrollTo(0, 0);
-}
+            document.getElementById('blogList').style.display = 'none';
+            document.getElementById('ageArticleView').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        function closeAgeArticle() {
+            document.getElementById('ageArticleView').style.display = 'none';
+            document.getElementById('blogList').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
 
-function closeAgeArticle() {
-    document.getElementById('ageArticleView').style.display = 'none';
-    document.getElementById('blogList').style.display = 'block';
-    window.scrollTo(0, 0);
-}
         function openEMIArticle() {
-    document.getElementById('blogList').style.display = 'none';
-    document.getElementById('emiArticleView').style.display = 'block';
-    window.scrollTo(0, 0);
-}
+            document.getElementById('blogList').style.display = 'none';
+            document.getElementById('emiArticleView').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        function closeEMIArticle() {
+            document.getElementById('emiArticleView').style.display = 'none';
+            document.getElementById('blogList').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
 
-function closeEMIArticle() {
-    document.getElementById('emiArticleView').style.display = 'none';
-    document.getElementById('blogList').style.display = 'block';
-    window.scrollTo(0, 0);
-}
         function openQRArticle() {
-    document.getElementById('blogList').style.display = 'none';
-    document.getElementById('qrArticleView').style.display = 'block';
-    window.scrollTo(0, 0);
-}
-
-function closeQRArticle() {
-    document.getElementById('qrArticleView').style.display = 'none';
-    document.getElementById('blogList').style.display = 'block';
-    window.scrollTo(0, 0);
-}
-        function openPassArticle() {
-    document.getElementById('blogList').style.display = 'none';
-    document.getElementById('passArticleView').style.display = 'block';
-    window.scrollTo(0, 0);
-}
-
-function closePassArticle() {
-    document.getElementById('passArticleView').style.display = 'none';
-    document.getElementById('blogList').style.display = 'block';
-    window.scrollTo(0, 0);
-}
-    </script>
-</body>
-</html>
+            document.getElementById('blogList').style.display = 'none';
+            document.getElementById('qrArticleView').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        function closeQRArticle() {
+            document.getElementById('qrArticleView').style.display = 'none';
+            document.getElementById('blogList').style.display = 'blo
