@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AIFreeKit</title>
+    <meta name="description" content="Get in touch with AIFreeKit. Contact us for feedback, suggestions, or business inquiries.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container { max-width: 600px; margin: 40px auto; padding: 30px 20px; background: #1a1a2e; border-radius: 15px; border: 1px solid #2a2a4a; text-align: center; }
+        .page-container h1 { color: #00d4ff; margin-bottom: 15px; }
+        .page-container p { color: #ccc; margin-bottom: 25px; line-height: 1.6; }
+        
+        .email-box { background: #0f0f1a; padding: 15px; border-radius: 10px; border: 1px solid #00d4ff; margin-bottom: 25px; display: inline-block; }
+        .email-box span { color: #00ff88; font-weight: bold; font-size: 1.1rem; user-select: all; }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #2a2a4a; background: #0f0f1a; color: #fff; font-size: 1rem; outline: none; font-family: inherit;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #00d4ff; }
+        
+        .contact-form button {
+            width: 100%; padding: 12px; border: none; border-radius: 8px; background: linear-gradient(135deg, #00d4ff, #a855f7); color: #fff; font-size: 1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s;
+        }
+        .contact-form button:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
+        </div>
+        <button onclick="window.location.href='index.html'" style="background:transparent; border:none; color:#00d4ff; font-weight:bold; cursor:pointer;">
+            ← Back to Home
+        </button>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="page-container">
+        <h1>Contact Us</h1>
+        <p>Have a question, feedback, or a business proposal? We'd love to hear from you!</p>
+
+        <!-- Direct Email Display -->
+        <div class="email-box">
+            📧 Email: <span>bookhubstore2@gmail.com</span>
+        </div>
+
+        <p style="font-size: 0.9rem; color: #888;">Fill out the form below to send us a message directly via your email app.</p>
+
+        <!-- Form Submit (Opens Email App) -->
+        <form class="contact-form" action="mailto:bookhubstore2@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email Address" required>
+            <textarea name="message" rows="5" placeholder="Type your message here..." required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Made with ❤️ | © 2026 AIFreeKit</p>
+    </footer>
+
+</body>
+</html>
