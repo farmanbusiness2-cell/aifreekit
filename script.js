@@ -113,9 +113,10 @@ modal.onclick = function(e) {
 // TOOL 1: QR CODE GENERATOR
 // ==========================================
 function loadQR() {
-    modalBody.innerHTML = '<input type="text" id="qrInput" placeholder="Enter link or text...">' +
-        '<button onclick="generateQR()">Generate QR Code</button>' +
-        '<div id="qrResult" style="text-align:center;margin-top:15px;"></div>';
+     modalBody.innerHTML = '<input type="text" id="qrInput" placeholder="Enter link or text...">' +
+    '<button onclick="generateQR()">Generate QR Code</button>' +
+    '<div id="qrResult" style="text-align:center;margin-top:15px;"></div>' +
+    '<a href="qr-code-generator.html" style="display:block; text-align:center; margin-top:15px; color:#00d4ff; font-weight:bold; text-decoration:none;">Read Full Guide &rarr;</a>';
 }
 
 function generateQR() {
