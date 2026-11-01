@@ -589,11 +589,13 @@ function loadMenuTools() {
     tools.forEach(function(tool) {
         var li = document.createElement('li');
         // Yahan hum link change karenge jab sabke pages ban jayenge
-        if (tool.id === 'qr') {
+         if (tool.id === 'qr') {
     li.innerHTML = '<a href="qr-code-generator.html" class="menu-tool-link">' + tool.icon + ' ' + tool.name + '</a>';
+} else if (tool.id === 'password') {
+    li.innerHTML = '<a href="password-generator.html" class="menu-tool-link">' + tool.icon + ' ' + tool.name + '</a>';
 } else {
     li.innerHTML = '<a href="javascript:void(0);" class="menu-tool-link" onclick="openToolFromMenu(\'' + tool.id + '\')">' + tool.icon + ' ' + tool.name + '</a>';
-        }
+         }
         group.appendChild(li);
     });
     
