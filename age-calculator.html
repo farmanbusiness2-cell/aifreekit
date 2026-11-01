@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Title -->
+    <title>Free Age Calculator - Calculate Exact Age by Date of Birth | AIFreeKit</title>
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Calculate your exact age in years, months, and days. Perfect for filling out job applications and government forms. 100% free and accurate.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Tool Design */
+        .tool-box { background: #1a1a2e; padding: 30px 20px; border-radius: 15px; border: 1px solid #2a2a4a; text-align: center; margin-bottom: 30px; }
+        .tool-box input[type="date"] { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #2a2a4a; background: #0f0f1a; color: #fff; font-size: 1rem; margin-bottom: 15px; outline: none; }
+        .tool-box input[type="date"]:focus { border-color: #00d4ff; }
+        .tool-box button { width: 100%; padding: 15px; border: none; border-radius: 10px; background: linear-gradient(135deg, #00d4ff, #a855f7); color: #fff; font-size: 1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .tool-box button:hover { transform: translateY(-2px); }
+        
+        /* Article Design */
+        .article-box { background: #1a1a2e; padding: 25px; border-radius: 15px; border: 1px solid #2a2a4a; }
+        .article-box h2 { color: #00d4ff; margin-top: 25px; margin-bottom: 15px; }
+        .article-box h1 { color: #00d4ff; margin-bottom: 20px; text-align: left; font-size: 1.8rem; }
+        .article-box p { color: #ccc; line-height: 1.8; margin-bottom: 15px; }
+        .article-box ul, .article-box ol { color: #ccc; margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
+        </div>
+        <button onclick="window.location.href='index.html'" style="background:transparent; border:none; color:#00d4ff; font-weight:bold; cursor:pointer;">
+            ← Back to Home
+        </button>
+    </header>
+
+    <div class="page-container">
+        
+        <!-- TOOL SECTION -->
+        <div class="tool-box">
+            <h1 style="color: #00d4ff; margin-bottom: 20px;">Age Calculator</h1>
+            <p style="color: #aaa; margin-bottom: 20px; font-size: 0.95rem;">Enter your Date of Birth to calculate your exact age.</p>
+            
+            <input type="date" id="dobInput">
+            <button onclick="calculateMyAge()">Calculate Age</button>
+            
+            <div id="ageResult" style="display: none; margin-top: 20px; background: #0f0f1a; padding: 20px; border-radius: 10px; border: 1px solid #00d4ff;"></div>
+        </div>
+
+        <!-- ARTICLE SECTION (SEO CONTENT) -->
+        <div class="article-box">
+            <h1>Free Online Age Calculator</h1>
+            <p>Knowing your exact age is important for many reasons. Whether you are applying for a government job, filling out a school admission form, or checking your retirement date, you often need your age in years, months, and days.</p>
+            
+            <h2>Why is Calculating Exact Age Tricky?</h2>
+            <p>Most people just subtract their birth year from the current year. But that doesn't give the exact age. You have to consider leap years, the number of days in each month, and your exact birth date. Doing this manually can lead to mistakes.</p>
+
+            <h2>How to Use Our Free Age Calculator</h2>
+            <p>You don't need to do complex math. Our free tool does it for you in seconds:</p>
+            <ol>
+                <li>Select your Date of Birth from the calendar above.</li>
+                <li>Click the "Calculate Age" button.</li>
+                <li>Instantly see your exact age in Years, Months, and Days.</li>
+                <li>You will also see your total days lived and total hours lived!</li>
+            </ol>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <p><b>Q: Is this Age Calculator accurate?</b><br>Yes, it takes leap years and different month lengths into account to give you the exact result.</p>
+            <p><b>Q: Is my birth date saved?</b><br>No. The calculation happens directly in your browser. We do not save your personal data.</p>
+            <p><b>Q: Is this tool free to use?</b><br>Yes, it is 100% free and requires no signup.</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Made with ❤️ | © 2026 AIFreeKit</p>
+    </footer>
+
+    <!-- Age Calculator Script -->
+    <script>
+        function calculateMyAge() {
+            var dob = document.getElementById('dobInput').value;
+            var resultBox = document.getElementById('ageResult');
+            
+            if (!dob) {
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = '<p style="color:#ff4757; font-weight:bold;">⚠️ Please select your Date of Birth!</p>';
+                return;
+            }
+            
+            var birthDate = new Date(dob);
+            var today = new Date();
+            
+            var years = today.getFullYear() - birthDate.getFullYear();
+            var months = today.getMonth() - birthDate.getMonth();
+            var days = today.getDate() - birthDate.getDate();
+            
+            if (days < 0) {
+                months--;
+                // Get days in the previous month
+                var prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += prevMonth.getDate();
+            }
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            var totalDays = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
+            var totalHours = totalDays * 24;
+            
+            resultBox.style.display = 'block';
+            resultBox.innerHTML = '<h3 style="color: #00ff88; font-size: 1.5rem; margin-bottom: 10px;">' + years + ' Years, ' + months + ' Months, ' + days + ' Days</h3>' +
+                                  '<p style="color: #aaa; font-size: 0.9rem;">Total Days Lived: <b style="color:#fff;">' + totalDays.toLocaleString() + '</b></p>' +
+                                  '<p style="color: #aaa; font-size: 0.9rem;">Total Hours Lived: <b style="color:#fff;">' + totalHours.toLocaleString() + '</b></p>';
+        }
+    </script>
+</body>
+</html>
