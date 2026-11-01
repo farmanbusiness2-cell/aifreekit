@@ -38,6 +38,8 @@ if (list[i].id === 'qr') {
     html += '<div class="tool-card" onclick="window.location.href=\'qr-code-generator.html\'">';
 } else if (list[i].id === 'password') {
     html += '<div class="tool-card" onclick="window.location.href=\'password-generator.html\'">';
+    } else if (list[i].id === 'age') {
+    html += '<div class="tool-card" onclick="window.location.href=\'age-calculator.html\'">';
 } else {
     html += '<div class="tool-card" onclick="openTool(\'' + list[i].id + '\')">';
 }
