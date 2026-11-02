@@ -42,6 +42,8 @@ if (list[i].id === 'qr') {
     html += '<div class="tool-card" onclick="window.location.href=\'age-calculator.html\'">';
     } else if (list[i].id === 'emi') {
     html += '<div class="tool-card" onclick="window.location.href=\'emi-calculator.html\'">';
+    } else if (list[i].id === 'image') {
+    html += '<div class="tool-card" onclick="window.location.href=\'image-compressor.html\'">';
 } else {
     html += '<div class="tool-card" onclick="openTool(\'' + list[i].id + '\')">';
 }
@@ -601,6 +603,8 @@ function loadMenuTools() {
     li.innerHTML = '<a href="age-calculator.html" class="menu-tool-link">' + tool.icon + ' ' + tool.name + '</a>';
  } else if (tool.id === 'emi') {
     li.innerHTML = '<a href="emi-calculator.html" class="menu-tool-link">' + tool.icon + ' ' + tool.name + '</a>';
+ } else if (tool.id === 'image') {
+    li.innerHTML = '<a href="image-compressor.html" class="menu-tool-link">' + tool.icon + ' ' + tool.name + '</a>';
 } else {
     li.innerHTML = '<a href="javascript:void(0);" class="menu-tool-link" onclick="openToolFromMenu(\'' + tool.id + '\')">' + tool.icon + ' ' + tool.name + '</a>';
          }
