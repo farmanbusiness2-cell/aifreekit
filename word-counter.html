@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Title -->
+    <title>Free Word Counter - Count Words & Characters Online | AIFreeKit</title>
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Count words, characters, and sentences instantly with our free online Word Counter. Perfect for essays, blogs, and social media posts.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Tool Design */
+        .tool-box { background: #1a1a2e; padding: 30px 20px; border-radius: 15px; border: 1px solid #2a2a4a; margin-bottom: 30px; }
+        .tool-box textarea { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #2a2a4a; background: #0f0f1a; color: #fff; font-size: 1rem; margin-bottom: 15px; outline: none; resize: vertical; }
+        .tool-box textarea:focus { border-color: #00d4ff; }
+        
+        .stats-box { display: flex; justify-content: space-between; background: #0f0f1a; padding: 15px; border-radius: 10px; border: 1px solid #2a2a4a; }
+        .stat-item { text-align: center; flex: 1; }
+        .stat-value { font-size: 1.5rem; color: #00d4ff; font-weight: bold; display: block; }
+        .stat-label { font-size: 0.8rem; color: #aaa; text-transform: uppercase; }
+        
+        /* Article Design */
+        .article-box { background: #1a1a2e; padding: 25px; border-radius: 15px; border: 1px solid #2a2a4a; }
+        .article-box h2 { color: #00d4ff; margin-top: 25px; margin-bottom: 15px; }
+        .article-box h1 { color: #00d4ff; margin-bottom: 20px; text-align: left; font-size: 1.8rem; }
+        .article-box p { color: #ccc; line-height: 1.8; margin-bottom: 15px; }
+        .article-box ul, .article-box ol { color: #ccc; margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">AI<span class="highlight">Free</span>Kit</span>
+        </div>
+        <button onclick="window.location.href='index.html'" style="background:transparent; border:none; color:#00d4ff; font-weight:bold; cursor:pointer;">
+            ← Back to Home
+        </button>
+    </header>
+
+    <div class="page-container">
+        
+        <!-- TOOL SECTION -->
+        <div class="tool-box">
+            <h1 style="color: #00d4ff; margin-bottom: 20px; text-align: center;">Word Counter</h1>
+            <p style="color: #aaa; margin-bottom: 20px; font-size: 0.95rem; text-align: center;">Paste your text below to count words and characters.</p>
+            
+            <textarea id="wordInput" rows="8" placeholder="Type or paste your text here..." oninput="updateWordCount()"></textarea>
+            
+            <div class="stats-box">
+                <div class="stat-item">
+                    <span class="stat-value" id="wordCount">0</span>
+                    <span class="stat-label">Words</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="charCount">0</span>
+                    <span class="stat-label">Characters</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="sentenceCount">0</span>
+                    <span class="stat-label">Sentences</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE SECTION (SEO CONTENT) -->
+        <div class="article-box">
+            <h1>Free Online Word Counter</h1>
+            <p>Whether you are a student writing an essay, a blogger creating a post, or a professional writing an email, knowing the exact word count is very important. Many platforms have strict limits. For example, Twitter (X) has a character limit, and college applications often have a word limit.</p>
+            
+            <h2>Why is Word Count Important?</h2>
+            <ul>
+                <li><b>For Students:</b> To meet assignment and essay limits.</li>
+                <li><b>For Social Media:</b> To make sure your tweet or Instagram caption fits perfectly.</li>
+                <li><b>For SEO:</b> Search engines prefer articles that are detailed (usually 500+ words).</li>
+            </ul>
+
+            <h2>How to Count Words Instantly</h2>
+            <p>Counting words manually takes a lot of time. Our free tool does it instantly as you type:</p>
+            <ol>
+                <li>Paste your text into the box above.</li>
+                <li>Instantly see the number of words, characters, and sentences!</li>
+            </ol>
+            <p>It's that simple. No sign-up, no limits.</p>
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <p><b>Q: Is this tool free?</b><br>Yes, it is 100% free to use.</p>
+            <p><b>Q: Does it save my text?</b><br>No. The counting happens directly in your browser. We never see or store your text.</p>
+            <p><b>Q: Does it count spaces as characters?</b><br>Yes, standard character counts usually include spaces.</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Made with ❤️ | © 2026 AIFreeKit</p>
+    </footer>
+
+    <!-- Word Counter Script -->
+    <script>
+        function updateWordCount() {
+            var text = document.getElementById('wordInput').value;
+            
+            // Count Words
+            var words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            
+            // Count Characters (including spaces)
+            var chars = text.length;
+            
+            // Count Sentences (split by . ! ?)
+            var sentences = text.trim() ? text.split(/[.!?]+/).filter(function(s) { return s.trim().length > 0; }).length : 0;
+            
+            document.getElementById('wordCount').textContent = words;
+            document.getElementById('charCount').textContent = chars;
+            document.getElementById('sentenceCount').textContent = sentences;
+        }
+    </script>
+</body>
+  </html>
